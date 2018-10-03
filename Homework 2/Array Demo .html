@@ -27,16 +27,67 @@ function reportA(str) {
     outA.innerText = "a = [ "+ a.join(", ")+" ] "+a.length;
     console.log(str);
 }
+
+function sqrt(){
+    let u="";
+    for(var p=0;p<a.length ;p++){
+	  var y = Math.sqrt(a[p])
+	  u+="["+y+"]";
+	  console.log(y);
+	}
+	sq.value=u;
+	  
+}
+function abs(){
+    let u="";
+    for(var p=0;p<a.length ;p++){
+	  var y = Math.abs(a[p])
+	  u+="["+y+"]";
+	  console.log(y);
+	}
+	absm.value=u;
+	  
+}
+
+function sin(){
+    let u="";
+    for(var p=0;p<a.length ;p++){
+	  var y = Math.sin(a[p])
+	  u+="["+y+"]";
+	  console.log("xp "+y);
+	}
+	sinm.value=u;
+	  
+}
 </script>
 
 <body>
 <h2 id=title></h2>
 
 <p id=outA></p>
+
+<p id=tsqrt></p>
 <p>
 i = <input type=number id=ie value=1  style="width:40px"> &emsp; 
-x = <input type=text   id=xe value=53 style="width:99px"> 
+<br>
+
+x = <input type=text   id=xe value=53 style="width:30%"> &emsp; 
+<br>
+
+sqrt=<input type=text   id=sq value=53 style="width:30%">  &emsp;
+<br>
+
+absolute=<input type=text   id=absm value=53 style="width:30%">  &emsp;
+<br>
+
+
+tsin=<input type=text   id=sinm value=53 style="width:30%"> 
 </p><p>
+
+<input type=button value="Find a sqrt "  onClick="sqrt()">
+<input type=button value="Find a Absolute "  onClick="abs()">
+
+<input type=button value="Find a sin "  onClick="sin()">
 <input type=button value="a[i]=x"  onClick="modify()">
 <input type=button value="remove"  onClick="remove()">
 <input type=button value="push x"  onClick="push()">
@@ -52,6 +103,7 @@ x = <input type=text   id=xe value=53 style="width:99px">
 
 <script>
     title.innerText = document.title;
+	//title.innerText = document.sqrt ;
     const a = [234, "abc", "son"];  //initially
     reportA("start");
 </script>
