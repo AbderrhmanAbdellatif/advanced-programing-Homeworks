@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Add Course </title>
+</head>
+
+<script>
+"use strict";
+    
+var school = []
+var arrayavg=[]
+var arrmax=[]
+//make a constructor to refrence my school subjects
+function Addsubject(name,mit,fnl){
+    var subjects ={
+         "Name" :name ,
+          "midterm":mit, 
+          "Final":fnl
+    };
+    //push subject into array
+    school.push(subjects);
+    
+}
+    function AddNumbers(name,avg){
+    var Maxnumbers ={
+         "name" :name ,
+          "avg":avg, 
+    };
+    arrmax.push(Maxnumbers);
+    
+}
+
+function Add() {
+    if(Dmidterim.value<100 && Dmidterim.value>0 || Dfinal.value<100 && Dfinal.value >0){
+      Addsubject(Dname.value,Dmidterim.value,Dfinal.value); //add to array 
+        Dname.value=null;
+        Dmidterim.value=null;
+        Dfinal.value=null;
+    }else{
+        alert("something wrong with your value"); //show the message on screen if the midterm and final values is wrong  inputs
+        Dmidterim.value=null;
+        Dfinal.value=null;
+    }
+    
+    
+}
+function Print() {  
+    var temp = " ";
+    var i =0;
+    for(i=0;i<school.length;i++){
+        temp  = temp +school[i].Name +"\t \t \t \t "+school[i].midterm+"\t \t \t \t"+school[i].Final+"\n";
+    }
+      outA.innerText = "\t"+temp+" \t  ";
+}
+function Average() {
+    var temp = " ";
+    var i =0;
+    var avg=0;
+    var t= 0;
+    for(i=0;i<school.length;i++){
+        avg=((parseInt(school[i].midterm)+parseInt(school[i].Final))/2);
+        arrayavg[t]=avg;
+        AddNumbers(school[i].Name,avg);
+        temp  = temp +school[i].Name +"\t \t \t \t "+avg +"\n";
+        t++;
+    }
+      outB.innerText = "\t "+temp+" \t ";
+}
+function Max() {
+    var temp = " ";
+    var maxValue = null;
+    var i=0;
+    for(i=0;i<arrayavg.length;i++){
+     if (maxValue === null || maxValue < arrayavg[i]) {
+           maxValue = arrayavg[i];
+     }
+    }
+    for(i=0;i<arrmax.length;i++){
+        if(parseInt(arrmax[i].avg)==parseInt(maxValue)){
+           outC.innerText= arrmax[i].name+" \t "+maxValue;
+            break;
+         }
+    }
+   
+}
+
+</script>
+
+<body>
+<h2 id=title></h2>
+
+
+<p>Name&emsp; <input type=text         id=Dname              style="30%">  </p>
+<p>Midterm <input type=Number          id=Dmidterim          style="30%"> </p>
+<p>Final    &emsp;<input type=Number   id=Dfinal            style="30%"> </p>
+
+<p>  <input type=button value="Add"  onClick="Add()"> </p>
+
+<p>
+<input type=button value="Print"  onClick="Print()">
+<input type=button value="Avg"  onClick="Average()">
+<input type=button value="Max"  onClick="Max()">
+</p>
+
+<hr />
+<p>
+<h3> Name   Midtern  Final</h3>
+<p id=outA></p>
+</p>
+<hr />
+<p>
+<h3> Name  Average</h3>
+<p id=outB></p>    
+</p>
+
+<hr />
+<p>
+<h3> Name   Max</h3>
+<p id=outC></p>    
+
+</p>
+
+<script>
+    title.innerText = document.title;
+     var items = [];
+</script>
+
+</body>
+</html>
