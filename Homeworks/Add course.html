@@ -78,6 +78,10 @@ function Average() {
       outB.innerHTML = "\t "+temp+" \t ";
 }
 function Max() {
+    if(arrayavg.length==0){
+         alert("Avg hesaplayin");
+    }else{
+    
     var temp = " ";
     var maxValue = null;
     var i=0;
@@ -92,7 +96,7 @@ function Max() {
             break;
          }
     }
-   
+    }
 }
 
 </script>
