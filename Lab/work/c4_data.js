@@ -18,10 +18,12 @@ function tableFor(evt) {
 function analyze(min=0) {
   let a = [];
   for (let evt of EVENTS) {
-    let cor = phi(tableFor(evt));
+    let table = tableFor(evt);
+    let value = phi(table);
+    let tumtableler = table[1] + table [3];
     if (Math.abs(cor) > min)
-      a.push(evt +": "+cor.toFixed(4))
-  }
+      a.push(evt +": "+value.toFixed(4) +"  "+tumtableler);
+}
   return a
 }
 
@@ -163,5 +165,4 @@ const JOURNAL = [
   new Entry(["bread","brushed teeth","television","weekend"], false),
   new Entry(["cauliflower","peanuts","brushed teeth","weekend"], false)
 ]
-
 journalEvents()  //determine the set of events
