@@ -17,15 +17,23 @@ function tableFor(evt) {
 
 function analyze(min=0) {
   let a = [];
+  let temp = 0;
   for (let evt of EVENTS) {
     let table = tableFor(evt);
-    let value = phi(table);
-    let tumtableler = table[1] + table [3];
+    let cor = phi(table);
     if (Math.abs(cor) > min)
-      a.push(evt +": "+value.toFixed(4) +"  "+tumtableler);
-}
+	  for (let entry of JOURNAL){
+		for (let e of entry.events){
+			if(e==evt)
+				temp++;
+		}
+	}
+      a.push(evt +": "+cor.toFixed(4) +"  "+temp);
+      temp = 0;
+  }
   return a
 }
+
 
 function journalEvents() {
   EVENTS.clear();
