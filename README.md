@@ -13,7 +13,7 @@
    
    2-[inspector](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/inspector.html)
    
-   3-[range](https://github.com/AbderrhmanAbdellatif/advanced-programing-Homeworks/blob/master/Lab/work/range.png)
+   3-[range](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png)
    
    
 - [X] HomeWork
