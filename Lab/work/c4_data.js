@@ -16,22 +16,22 @@ function tableFor(evt) {
 }
 
 function analyze(min=0) {
-  let a = [];
+  let arr = [];
   let temp = 0;
   for (let evt of EVENTS) {
     let table = tableFor(evt);
     let cor = phi(table);
     if (Math.abs(cor) > min)
 	  for (let entry of JOURNAL){
-		for (let e of entry.events){
-			if(e==evt)
+		for (let t of entry.events){
+			if(t==evt)
 				temp++;
 		}
 	}
-      a.push(evt +": "+cor.toFixed(4) +"  "+temp);
+      arr.push(evt +": "+cor.toFixed(4) +"  "+temp);
       temp = 0;
   }
-  return a
+  return arr
 }
 
 
