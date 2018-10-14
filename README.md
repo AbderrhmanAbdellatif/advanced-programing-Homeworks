@@ -17,7 +17,7 @@ This course teaches practical, modern software development practices in the JS p
    3-[range](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png)
    
    
-- [X] HomeWork
+- [X] Assessment tasks
 
 
 
