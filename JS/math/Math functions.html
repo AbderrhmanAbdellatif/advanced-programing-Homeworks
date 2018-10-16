@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="MyMath.js"></script>
+    <title>Sample Math Functions </title>
+</head>
+
+<script>
+"use strict";
+function round(x) {
+  let v = Math.round(x.value);
+  x.value = v; return v;
+}
+function action(a) {
+  let xv = Number(X.value), yv = Number(Y.value); 
+  let res, act;
+  if (a[0] == "M") { //Math.fun
+    const fun = ff.value;
+    res = Math[fun].call(null, xv, yv);
+    const t = (Math[fun].length == 1? "(X)" : "(X, Y)");
+    a = 'Math.'+fun+t; fX.value = t;
+  } if (a[0] == "S") { //Sqrt
+    res = root(xv); act = Math.sqrt(xv);
+  } else if (a[0] == "E"){ //Exp
+    res = expon(xv); act = Math.exp(xv);
+  } else if (a[0] == "G") { //GCD
+    xv = round(X); yv = round(Y);
+    res = gcd(xv, yv);
+  } else if (a[0] == "X") { //X^Y
+    yv = round(Y);
+    res = power(xv, yv); act = Math.pow(xv, yv);
+  }
+  a = a.replace("X", xv).replace("Y", yv);
+  let s = a+" = "+res;
+  if (act) s += "\nActual: "+act;
+  out.innerText = s; console.log(s);
+}
+</script>
+
+<style>
+    #fM { font:12px arial,sans-serif }
+    #ff { width:40px }
+</style>
+
+<body>
+<h2 id=title></h2>
+<p>X = <input type=number id=X value='3.14159'></p>
+<p>Y = <input type=number id=Y value='15'></p>
+<p>
+<input type=button value="Sqrt(X)"   onClick="action(value)"> 
+<input type=button value="Exp(X)"    onClick="action(value)"> 
+<input type=button value="GCD(X, Y)" onClick="action(value)"> 
+<input type=button value="X^Y"       onClick="action(value)"> <p>
+<span  id=fM> Math.</span>
+<input id=ff value="cos" onChange="action('Math')"> 
+<input id=fX type=button value="(X)" onClick="action('M')"> 
+
+<p id=out></p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math" target="ExternalDocument">Math class</a>
+</p>
+
+<script>
+    title.innerText = document.title;
+    action('Math');  //evaluate
+    const list = `
+/* List of 35 functions in Math class
+  'abs', 'acos', 'acosh', 'asin', 'asinh', 
+  'atan', 'atan2', 'atanh', 'cbrt', 'ceil', 
+  'clz32', 'cos', 'cosh', 'exp', 'expm1', 
+  'floor', 'fround', 'hypot', 'imul', 'log', 
+  'log1p', 'log2', 'log10', 'max', 'min', 
+  'pow', 'random', 'round', 'sign', 'sin', 
+  'sinh', 'sqrt', 'tan', 'tanh', 'trunc'
+*/`  //multi-line string
+    sample.innerText = power+list;
+</script>
+</body>
+</html>

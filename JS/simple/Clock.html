@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+</head>
+
+<script>
+"use strict";
+var hm;  //global value
+function twoDigits(t) {
+    if (t>9) return ""+t;
+    return "0"+t;
+}
+function setHourMin() {
+    const d = new Date();
+    hm = twoDigits(d.getHours())+":"
+        +twoDigits(d.getMinutes());
+    document.title = "Clock "+hm; 
+    //console.log(hm);
+}
+function count() {
+    const d = new Date();
+    let sec = twoDigits(d.getSeconds());
+    if (sec == "00") setHourMin();
+    out.innerText = hm+":"+sec;
+    setTimeout(count, 1000);
+}
+</script>
+
+<style>
+    #out {
+        font-size: 48px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        padding: 80px;
+    }
+</style>
+
+<body>
+
+<p id=out></p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+    sample.innerText = count.toString();
+    window.onfocus = setHourMin;
+    setHourMin(); count();
+</script>
+
+</body>
+</html>

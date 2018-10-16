@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pie Chart </title>
+
+<script>
+"use strict";
+const results = [
+      {name: "Satisfied", count: 1043, color: "lightblue"},
+      {name: "Neutral", count: 563, color: "lightgreen"},
+      {name: "Unsatisfied", count: 510, color: "pink"},
+      {name: "No comment", count: 175, color: "silver"}
+    ];
+function namesToHTML(data) {
+    let total = 0;
+    for (let x of data) total += x.count;
+    //data.reduce((sum, {count}) => sum + count, 0);
+    let s = "";
+    for (let x of data) {
+        x.percent = x.count * 100 / total;
+        s += x.percent.toFixed()+"% &nbsp; <span style='color:"
+            +x.color+"'> "+x.name+" </span><br>";
+    }
+    return s;
+}
+function pieChart(data, R = 110, C = 20) {
+    canvas.width = 2*(R+C); canvas.height = 2*(R+C);
+    const cx = canvas.getContext("2d");
+    const k = 2 * Math.PI / 100;
+    let a = -0.5 * Math.PI; // start at -pi/2
+    for (let x of data) {
+        const delta = x.percent * k;
+        cx.beginPath();
+        // center=(R+C, R+C) radius=R
+        // clockwise by delta
+        cx.arc(R+C, R+C, R, a, a + delta);
+        a += delta;
+        cx.lineTo(R+C, R+C);
+        cx.fillStyle = x.color;
+        cx.fill();
+    }
+}
+</script>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+<p>using JavaScript canvas</p>
+
+<p id=out></p>
+<hr />
+<canvas id=canvas></canvas>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+
+<p>Ref: <i>Eloquent JavaScript</i>,
+<a href="http://eloquentjavascript.net/17_canvas.html" 
+   target="ExternalDocument"> Chap 17</a>
+</p>
+
+<script>
+    title.innerText = document.title;
+    sample.innerText = pieChart.toString();
+    out.innerHTML = namesToHTML(results);
+    pieChart(results);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Türkçe Sayılar </title>
+    <script src="TurkceSayi.js"></script>
+</head>
+
+<script>
+"use strict";
+function convert() {
+    let s = toWord(X.value);
+    console.log(X.value+" -> "+s);
+    out.innerText = s;
+}
+</script>
+
+<body>
+
+<h2 id=title></h2>
+
+Sayı 
+<input type=number id=X style="width:120px" 
+value=1234560 onChange="convert()">  
+<input type=button value="Çevir" onClick="convert()">
+
+<p id=out></p>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+    title.innerText = document.title;
+    sample.innerText = toWord.toString();
+    convert();
+</script>
+
+</body>
+</html>

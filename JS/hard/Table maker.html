@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Make a Table </title>
+</head>
+
+<script>
+"use strict";
+//June 8, 2018 MAE -- basis for 
+//https://maeyler.github.io/Visual-Mujam/
+//
+function makeRows(m, n) {
+    let row = "<th></th>";
+    for (let j = 1; j <= n; j++) 
+        row += "<th>"+j+"</th>";
+    let text = "<tr>"+row+"</tr>";
+    for (let i = 1; i <= m; i++) {
+       row = "<th>"+i+"</th>";
+       for (let j = 1; j <= n; j++) {
+          const p = n*(i-1)+j;
+          const s = "<span class=tip>C"+p+"</span>"
+          row += "<td>"+i+","+j+s+"</td>";
+       }
+       text += "<tr>"+row+"</tr>";
+    }
+    const t = text.length+" chars";
+    console.log("makeRows: "+m+"x"+n+" "+t);
+    tablo.innerHTML = text; out.innerText = t; 
+}
+function tableFromMenu() {
+    const a = size.value.split("x");
+    makeRows(a[0], a[1]);
+    rows.value = a[0];
+    cols.value = a[1];
+}
+function tableFromInput() {
+    const m = rows.value;
+    const n = cols.value;
+    makeRows(m, n);
+    size.value = m+"x"+n;
+}
+</script>
+
+<style>
+    table { border-collapse: collapse; }
+    th { color: blue; padding: 5px 5px; }
+    td { 
+        border: 1px solid blue; 
+        padding: 5px 5px; 
+        text-align: center; 
+    }
+    td:hover .tip { visibility: visible; }
+    .tip {
+        visibility: hidden;
+        font-size: small;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        padding: 5px 5px;
+        position: absolute;
+    }
+</style>
+
+<body>
+<center>
+<h2 id=title></h2>
+
+<p>Size: 
+<select id="size" oninput="tableFromMenu()">
+    <option selected>3x5</option>
+    <option>5x5</option>
+    <option>7x8</option>
+    <option>9x9</option>
+</select></p>
+
+<table id="tablo"></table>
+
+<p id=out style="font-size:small"></p>
+
+<form oninput="tableFromInput()">
+  Rows: 
+  <input type=number id=rows style="width:40px" value=7>
+  Columns: 
+  <input type=number id=cols style="width:40px" value=8>
+  <br><br>
+  <input type=reset>
+  <input type=button value="Make Table" onclick="tableFromInput()">
+</form>
+</center>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+    title.innerText = document.title;
+    sample.innerText = makeRows.toString();
+    makeRows(3, 5);
+</script>
+
+</body>
+</html> 

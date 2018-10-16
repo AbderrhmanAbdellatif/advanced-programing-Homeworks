@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Date and Color </title>
+</head>
+
+<script>
+"use strict";
+//My first non-trivial JS code
+//June 8, 2018 MAE
+//
+function setDate(s) {
+    console.log("date: "+s);
+    out.innerText = "Current date is "+s;
+}
+function setColor(c) {
+    console.log("color: "+c);
+    title.style.color = c;
+    out.style.color = c;
+}
+</script>
+
+<body>
+<h2 id=title></h2>
+
+<button onclick=setDate(Date())>Print date</button>
+<button onclick=setDate("??")>Clear</button>
+<button onclick=setColor("blue")>Blue</button>
+<button onclick=setColor("green")>Green</button>
+
+<p id=out></p>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: <a href="https://www.w3schools.com/js/js_dates.asp"
+      target="ExternalDocument">JS Date</a>
+</p>
+
+<script>
+    title.innerText = document.title;
+    sample.innerText = setDate+"\n"+setColor;
+    setDate("??");
+</script>
+
+</body>
+</html>

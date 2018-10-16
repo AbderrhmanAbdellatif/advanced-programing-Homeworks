@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fetch Remote File </title>
+</head>
+
+<script>
+"use strict";
+function hide() {
+    state.style.visibility = "hidden";
+}
+function show(v) {
+    state.value = v; state.style.visibility = "";
+}
+function report(t, n) {
+    show("OK"); setTimeout(hide, 1000);
+    out.innerText = t;
+    console.log(n? n : t);
+}
+function readText() {
+    show("FT"); // fetch text
+    fetch(url.value)
+      .then(r => r.text()) 
+      //response of fetch() is r
+      .then(t => report(t, t.length+" chars"));  
+      //response of text() is t
+}
+function readBlob() {
+    show("FB"); // fetch blob
+    fetch(url.value)
+      .then(r => r.blob())  //response r
+      .then(b => report(b.size+" bytes"));
+}
+</script>
+
+<body>
+
+<h2 id=title></h2>
+
+<input type=text id=url value="test.txt">
+<!--onChange="readText()"-->
+
+<input type=button value="text" onClick="readText()">
+<input type=button value="blob" onClick="readBlob()">
+<input type=button id=state style="visibility: hidden">
+
+<pre id=out></pre>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+    title.innerText = document.title;
+    sample.innerText = readText+"\n"+readBlob;
+</script>
+
+</body>
+</html>

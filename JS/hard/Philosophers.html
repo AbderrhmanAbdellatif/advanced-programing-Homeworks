@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Dining Philosophers </title>
+
+<style>
+    input {
+        width: 90px;
+    }
+    td {
+        font: 12px arial, sans-serif;
+        color: blue;
+        width: 100px;
+        text-align: center;
+    }
+    #sample {
+        overflow-x: auto;
+    }
+    #tim, #out {
+        color: darkgreen;
+    }
+</style>
+
+<script>
+"use strict";
+var started, clock, list;  //global
+const phil = new Array(4);
+const 
+  IMG_PREF = "<img src='../images/", IMG_SUFX = ".png'>",
+  HUNGRY = 'hungry', WAITQUE = 'waitQue', WAITING = 'waiting', 
+  EATQUE = 'eatQue',  EATING = 'eating', THINKING = 'thinking', 
+  GRABS = "grabs", EATS = "eats", ENDS = "ends", BUSY = 'o';
+
+function start() {
+    started = new Date().getTime();
+    button.innerText = "stop"; 
+    out.innerText = "Running";
+    oneStep();
+}
+function stop() {
+    let t = new Date().getTime();
+    let s = ((t-started)/1000).toFixed();
+    started = undefined;
+    let dead = (list.length == 0);
+    button.innerText = dead? "release" : "start";
+    let m = dead? "DEADLOCK" : "Stopped"; 
+    out.innerText = m+" -- in "+s+" sec"
+}
+function release(i = 0) { //default index is 0
+    phil[i].setState(THINKING); //release resources
+    button.innerText = "start"; 
+    out.innerText = list.join("\n");
+}
+function doRun() { //call start, stop, release
+    eval(button.innerText+"()"); 
+}
+function doStep() {
+    if (started) stop(); 
+    oneStep();
+}
+function init() {
+    clock = 0; list = [];;
+    for (let p of phil) { 
+        p.count = 0;
+        p.setState(HUNGRY);
+        p.left.innerText = "";
+    }
+    list.sort((e1, e2)=>(e1.when-e2.when));
+    console.assert(list.length == phil.length);
+}
+function oneStep() {
+    if (!list) init();
+    if (list.length == 0) {  //no event
+        if (started) stop(); //DEADLOCK 
+        return;
+    }
+    let t0 = clock;
+
+    //first bound event
+    let evt = list[0]; list.splice(0, 1);
+    clock = evt.when; evt.process();
+    
+    //conditional events
+    for (let p of phil) 
+      if (p.state == WAITQUE) {
+          if (p.right.innerText) continue;
+          p.setState(WAITING);
+          p.right.innerText = BUSY;
+      } else if (p.state == EATQUE) {
+          if (p.left.innerText) continue;
+          p.setState(EATING);
+          p.left.innerText = BUSY;
+      }
+      
+    //report
+    console.log(evt+" => "+evt.who.state);
+    tim.innerText = "Clock = "+evt;
+    if (started)
+         setTimeout(oneStep, clock-t0);
+    else out.innerText = list.join("\n");
+}
+const RNG = {
+  seed : 1234,
+  init : function(s) { this.seed = s },
+  random : function() {
+  //https://www.ict.griffith.edu.au/anthony/info/C/RandomNumbers
+    const a = 48271, m = 2147483647, r = 3399, q = 44488;
+    this.seed = Math.trunc(this.seed % q * a - this.seed / q * r);
+    if (this.seed < 0) this.seed += m;
+    return this.seed/m;
+  }
+}
+class Philosopher {
+  constructor(name, idx) {
+    this.name = name; 
+    this.count = 0;
+    this.state = HUNGRY; 
+    this.left  = document.getElementById("c"+idx);
+    this.label = document.getElementById("p"+idx);
+    let n = idx+1; if (n == phil.length) n = 0;
+    this.right = document.getElementById("c"+n);
+    this.setImage("&emsp;");
+  }
+  toString() { return this.name; }
+  setImage(s) {
+    let img = IMG_PREF+this.state+IMG_SUFX;
+    this.label.innerHTML = this.name+"<br>"+img+"<br>"+s;
+  }
+  setState(s) {
+    this.state = s; let e = "";
+    let t = delay*RNG.random();
+    if (s == HUNGRY) {
+      t = 2*t; e = GRABS;
+    }
+    else if (s == WAITING) {
+      e = EATS;
+    }
+    else if (s == EATING) {
+      t = 2*t; e = ENDS;
+    }
+    else if (s == THINKING) {
+      t = 4*t; e = HUNGRY; 
+      this.left.innerText = "";
+      this.right.innerText = "";
+      this.count++;
+    }
+    else return;
+    this.setImage(s);
+    let evt = new MyEvent(e, clock+t, this);
+    list.push(evt);
+    list.sort((e1, e2)=>(e1.when-e2.when));
+  }
+}
+class MyEvent {
+  constructor(what, when, who) {
+    this.what = what;
+    this.when = when;
+    this.who  = who;
+  }
+  toString() {
+    let w = this.when.toFixed();
+    return w+": "+this.who+" "+this.what; 
+  }
+  process() {
+    if (this.what == GRABS) {
+      this.who.state = WAITQUE;
+    }
+    else if (this.what == EATS) {
+      this.who.state = EATQUE;
+    }
+    else if (this.what == ENDS) {
+      this.who.setState(THINKING);
+    }
+    else if (this.what == HUNGRY) {
+      this.who.setState(HUNGRY);
+    }
+  }
+}
+</script>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+<p>
+<button id=button onClick="doRun()">start</button>
+<button id=step   onClick="doStep()">step</button>
+&emsp; Delay: 
+<input id=inp type="range" min=1 max=20 value=5 
+onChange="delay=100*value">
+</p>
+
+<pre id=tim>No event</pre>
+
+<table>
+  <tr>
+    <td id=c3>c3</td><td id=p2>p2</td><td id=c2>c2</td>
+  </tr><tr>
+    <td id=p3>p3</td><td>        </td><td id=p1>p1</td>
+  </tr><tr>
+    <td id=c0>c0</td><td id=p0>p0</td><td id=c1>c1</td>
+  </tr>
+</table>
+
+<pre id=out>Not started</pre>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+
+<hr />
+<p>Ref: 
+<a href="http://www.wikiwand.com/en/Dining_philosophers_problem" 
+   target="ExternalDocument">Dining_philosophers</a> &emsp;
+Java jar is <a href=
+"http://github.com/maeyler/BLM305/blob/master/work/DiningPhilosophers.jar?raw=true" 
+   target="ExternalDocument">here</a>
+</p>
+
+<script>
+   title.innerText = document.title;
+   sample.innerText = Philosopher.toString();
+   var delay = 100*inp.value; //msec
+   let P = ["Aristotle", "Sokrates", "Pythagoras", "Archimedes"];
+   for (let i=0; i<4; i++) phil[i] = new Philosopher(P[i], i);
+</script>
+
+</body>
+</html>

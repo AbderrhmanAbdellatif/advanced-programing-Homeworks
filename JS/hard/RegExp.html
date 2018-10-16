@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Regular Expressions </title>
+</head>
+
+<script>
+"use strict";
+function setValues() {
+    pat.value = ppp[menu.selectedIndex];
+    inp.value = word[menu.selectedIndex];
+    checkRE();
+}
+function checkRE() {
+    if (pat.value && inp.value) {
+        const exp = new RegExp(pat.value,'g');
+        const str = "<span class=found>$&</span>";
+        out.innerHTML = inp.value.replace(exp, str);
+    }
+}
+</script>
+
+<style>
+    .found { color: #F60; }
+</style>
+
+<body>
+<h2 id=title></h2>
+
+<p>
+<input type=text id=pat  style="width:90px" onKeyUp="checkRE()"> Pattern 
+<select id=menu onChange="setValues()">
+<option>Letter<option>Number<option>Suffix<option>x+letter
+</select> Selection
+</p><p>
+<input type=text id=inp  style="width:250px" onKeyUp="checkRE()"> Input
+</p>
+<p id=out></p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: <a href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html" target="ExternalDocument">Term project by Emrah Tema</a></p>
+
+<script>
+    const ppp = ["[a-z]", "[0-9]{4}", "d[iuü][km]", "x[a-z]"];
+    const word = 
+         ["Bir iki üç dört beş altı ", "Bugün 23/6/2018 saat 14",
+          "Geldim gördüm buldum...", "Excellent expression tax "];
+    sample.innerText = setValues.toString()+"\n"+checkRE.toString();
+    title.innerText = document.title; setValues();
+</script>
+
+</body>
+</html>

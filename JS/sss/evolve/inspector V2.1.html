@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="inspector.css" rel="stylesheet" media="all">
+    <script src="inspector.js"></script>
+    <title>Inspector </title>
+</head>
+
+<body>
+<p><b id=docName></b> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/">Read me</a> &nbsp;
+<input type=file multiple onChange='fileSelect(this)' />
+</p>
+
+<script>
+"use strict";
+const RDR2 = new FileReader();
+function fileSelect(t) { 
+//target t is the file selection HTMLInputElement
+    let a = t.files; //display(t);
+    if (a.length == 0) return;
+    display(RDR2);
+    display(a.length == 1? a[0] : a);
+}
+var a, b, c;  //global variables
+function init() {
+    let s = "Small is beautiful", d = new Date(),
+       length = 123, name = "Circle", pi = Math.PI, 
+       sqrt = Math.sqrt, power = Math.pow, 
+       toString = (() => s), n = navigator;
+    a = [0, 11, "22", "abc"]; b = new Set(a);
+    c = {length, name, pi, sqrt, power, toString};
+    for (let x of [s, d, a, b, c, document, window, n]) 
+        display(x);
+}
+    docName.innerText = document.title+" "+VERSION;
+    try {
+        inspect(document.body, init, "_.toString()");
+    } catch(e) {
+        reportError(e);
+    }
+</script>
+</body>
+</html>
