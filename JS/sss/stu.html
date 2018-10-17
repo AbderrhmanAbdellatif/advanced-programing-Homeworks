@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="inspector.css" rel="stylesheet" media="all">
+    <script src="inspector.js"></script>
+    <title>Employee (classes) </title>
+</head>
+
+<body>
+<p>From <a href="http://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model" 
+target="ExternalDocument">Object model</a> using
+<a href="https://medium.com/front-end-hacking/es6-lets-divide-our-phones-into-classes-4574bd0454bf" 
+target="ExternalDocument">Phones into classes</a>. &nbsp;
+</p>
+
+<script>
+"use strict";
+class School{
+    constructor(Name){
+        this.name=Name;
+        var School=[];
+    }
+    AddtheSchool(NaSchool){
+        this.School.push(NaSchool);
+    }
+    toString(){
+        return this.name;
+    }
+}
+class Student extends School{
+    constructor(Nameofschool,name,Num){
+        super(Nameofschool);
+        this.name=name;
+        this.Num=Num;
+        
+    }
+    toString (){
+        return this.name +" - "+this.Num;
+    }
+    StuCitizenship(Cp){ 
+        return this.name +" - "+this.Num+" - "+this.Cp +this;
+    }
+   
+}
+class Lesson extends Student{
+    constructor(LessonName,StuName,StuNumber,schoolName){
+        super(schoolName,StuName,StuNumber);
+        this.lesson=LessonName;
+        this.Lessons = [];
+    }
+    AddLessons(stuLessons){
+        this.Lessons.push(stuLessons);
+        return this;
+    }
+    toString(){
+        return this.lesson;
+    }
+    
+}    
+    
+var t = new Student('FSMVU','Abderrhman',1421221042);
+var s = new School('Fsmvu');
+var l=new Lesson("BLM305","Abderrhman",1421221042,"FSMVU");
+function init() {
+    for (let x of [window,t,s,l])
+        display(x);
+}
+    try {
+        inspect(document.body, init);
+    } catch(e) {
+        reportError(e);
+    }
+</script>
+
+<p><b>Ref: </b><span id=docName></span> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/" target="ExternalDocument">Read me</a> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/Turkish" target="ExternalDocument" >Turkish</a>
+<p>
+
+<script>
+    docName.innerText = "Inspector "+VERSION;
+</script>
+
+</body>
+</html>
