@@ -9,12 +9,12 @@ This course teaches practical, modern software development practices in the JS p
 
 
 
-| Laboratory | links |
-| --- | --- |
-| `Array` | [link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Array%20Demo%20.html)  :+1:|
-| `inspector` |[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/inspector.html) :+1: |
-| `range` |[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png) :+1: |
-|`Class`|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/BLM305-master/work/index.html) :+1: |
+| Laboratory |Date| Links |
+| --- | --- |----|
+| `Array` | | [link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Array%20Demo%20.html)  :+1:|
+| `inspector` ||[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/inspector.html) :+1: |
+| `range` ||[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png) :+1: |
+|`Class`|24/10/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/BLM305-master/work/index.html) :+1: |
 
 
 
