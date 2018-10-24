@@ -39,3 +39,9 @@ class Distance {
   }
   
 }
+class cw4 extends Menu {
+   constructor() {
+    super();
+   
+ }
+}

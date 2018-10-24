@@ -16,24 +16,14 @@ function tableFor(evt) {
 }
 
 function analyze(min=0) {
-  let arr = [];
-  let temp = 0;
+  let a = [];
   for (let evt of EVENTS) {
-    let table = tableFor(evt);
-    let cor = phi(table);
+    let cor = phi(tableFor(evt));
     if (Math.abs(cor) > min)
-	  for (let entry of JOURNAL){
-		for (let t of entry.events){
-			if(t==evt)
-				temp++;
-		}
-	}
-      arr.push(evt +": "+cor.toFixed(4) +"  "+temp);
-      temp = 0;
+      a.push(evt +": "+cor.toFixed(4))
   }
-  return arr
+  return a
 }
-
 
 function journalEvents() {
   EVENTS.clear();
@@ -42,31 +32,7 @@ function journalEvents() {
       EVENTS.add(e);
 }
 
-class Chap4 extends Menu {
-  correlation(evt) { 
-    return phi(window.tableFor(evt)) 
-  }
-  analyze(val) {
-    return window.analyze(val)
-  }
-  tableFor(evt) {
-    return window.tableFor(evt)
-  }
-  max(...numbers) {
-    let result = -Infinity;
-    for (let n of numbers)
-      if (n > result) result = n;
-    return result;
-  }
-  pointOnCircle(radius=1) {
-    let angle = Math.random() * 2 * Math.PI;
-    return {x: radius * Math.cos(angle),
-            y: radius * Math.sin(angle)};
-  }
-  toString() {
-    return "[object Menu] Chap4"
-  }
-}
+
 
 class Entry {
   constructor(evt, sq) {
@@ -173,4 +139,31 @@ const JOURNAL = [
   new Entry(["bread","brushed teeth","television","weekend"], false),
   new Entry(["cauliflower","peanuts","brushed teeth","weekend"], false)
 ]
+
 journalEvents()  //determine the set of events
+
+class Chap4 extends Menu {
+  constructor() {
+    super();
+    this.s = "Small is beautiful";
+    this.d = new Date(),
+    this.a = a; this.c = c; //global
+    this.window = window;
+    this.JOURNAL = JOURNAL;
+    this.EVENTS = EVENTS;
+  }
+  correlation(evt) { 
+    return phi(window.tableFor(evt)) 
+  }
+  analyze(val) {
+    return window.analyze(val)
+  }
+  tableFor(evt) {
+    return window.tableFor(evt)
+  }
+  pointOnCircle(radius=1) {
+    let angle = Math.random() * 2 * Math.PI;
+    return {x: radius * Math.cos(angle),
+            y: radius * Math.sin(angle)};
+  }
+}
