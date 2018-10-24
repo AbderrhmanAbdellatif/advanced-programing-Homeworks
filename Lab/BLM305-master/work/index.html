@@ -102,7 +102,7 @@ function init() {
   
     display(MENU);
 }
-    docName.innerText = "Inspector "+VERSION;
+    docName.innerText = " JavaScript ";
     try {
         inspect(document.body, init); //makes the table
         //inp.value = "new Number(c.pi)";
@@ -114,10 +114,71 @@ function init() {
 </script>
 
 
-
+<b>Sample code</b>
 	
-</p> My works<p>
 
+<pre>
+"class Point
+{
+	constructor(x,y)
+	{
+		this.x=x
+		this.y=y
+	}
+	toString()
+	{
+		return "(" + this.x + "," + this.y + ")"
+	}
+}
+class Point3D extends Point
+{
+	constructor(x,y,z)
+	{
+		super(x,y)
+		this.z=z
+	}
+	toString()
+	{
+		return "(" + this.x + "," + this.y + "," + this.z + ")"
+	}
+}
+class Distance
+{
+	constructor(km,m)
+	{
+		this.km=km
+		this.miles=m
+	}
+	setKm(km)
+	{
+		this.km=km
+	}
+	getKm()
+	{
+		return this.km
+	}
+	
+	setMiles(m)
+	{
+		this.miles=m
+	}
+	getMiles()
+	{
+		return this.miles
+	}
+	
+	toString()
+	{
+		return this.km + " km"
+	}
+	MtoKm(m){
+	 Ckm = Math.round(m / 100) / 10
+	 return Ckm;
+	}
+} "
+</pre>
+<h1/><h1>
+<b>My works</b>
 </p><p>
 <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Array%20Demo%20.html">array</a>&emsp;
 <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/Add%20course.html">project</a>			&emsp;	
