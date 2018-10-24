@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://maeyler.github.io/JS/sss/inspector.css" 
+          rel="stylesheet" media="all">
+    <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
+    
+    <script src="database.js"></script>
+
+    <title>JavaScript </title>
+</head>
+
+<body>
+<p><b id=docName></b> &nbsp;
+<a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/">Read me</a> &nbsp;
+<a href="https://maeyler.github.io/JS/sss/Turkish">Turkish</a>
+</p>
+
+<script>
+	
+class Point
+{
+	constructor(x,y)
+	{
+		this.x=x
+		this.y=y
+	}
+	toString()
+	{
+		return "(" + this.x + "," + this.y + ")"
+	}
+}
+class Point3D extends Point
+{
+	constructor(x,y,z)
+	{
+		super(x,y)
+		this.z=z
+	}
+	toString()
+	{
+		return "(" + this.x + "," + this.y + "," + this.z + ")"
+	}
+}
+class Distance
+{
+	constructor(km,m)
+	{
+		this.km=km
+		this.miles=m
+	}
+	setKm(km)
+	{
+		this.km=km
+	}
+	getKm()
+	{
+		return this.km
+	}
+	
+	setMiles(m)
+	{
+		this.miles=m
+	}
+	getMiles()
+	{
+		return this.miles
+	}
+	
+	toString()
+	{
+		return this.km + " km"
+	}
+	MtoKm(m){
+	 Ckm = Math.round(m / 100) / 10
+	 return Ckm;
+	}
+}
+</script>
+
+
+<script>
+"use strict";
+ class Cw4 extends Menu
+{
+	
+constructor()
+{
+	super()
+	this.student=new Student(1421221042,"Abderrhman",5)
+	this.course= new Course("blm305","3.85","12/10/2018",202)
+	this.distance= new Distance(300,3)
+	this.point3d= new Point3D(4,7,8)
+	this.point= new Point(4,7)
+}	
+}
+function init() {
+    MENU = new Cw4(); //global
+    display(MENU); 
+  
+    display(MENU);
+}
+    docName.innerText = "Inspector "+VERSION;
+    try {
+        inspect(document.body, init); //makes the table
+        //inp.value = "new Number(c.pi)";
+    } catch(e) {
+        reportError(e);
+    }
+    
+    
+</script>
+
+
+
+	
+</p> My works<p>
+
+</p><p>
+<a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Array%20Demo%20.html">array</a>&emsp;
+<a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/Add%20course.html">project</a>			&emsp;	
+<a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/inspector.html">inspect</a>		&emsp;
+
+</p>
+<pre id=disp1></pre>
+<img id=disp2 />
+
+</body>
+</html>
