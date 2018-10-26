@@ -44,39 +44,24 @@ class Point3D extends Point
 		return "(" + this.x + "," + this.y + "," + this.z + ")"
 	}
 }
-class Distance
-{
-	constructor(km,m)
-	{
-		this.km=km
-		this.miles=m
-	}
-	setKm(km)
-	{
-		this.km=km
-	}
-	getKm()
-	{
-		return this.km
-	}
-	
-	setMiles(m)
-	{
-		this.miles=m
-	}
-	getMiles()
-	{
-		return this.miles
-	}
-	
-	toString()
-	{
-		return this.km + " km"
-	}
-	MtoKm(m){
-	 Ckm = Math.round(m / 100) / 10
-	 return Ckm;
-	}
+class Distance {
+    constructor (km = 0) {
+        this.km = Math.round(km);
+    }
+    get miles () {
+        return Math.round(this.km * 1.6);
+    }
+    set miles (value = 0) {
+        this.km = Math.round(value / 1.6);
+    }
+    toString () {
+        return this.km + " km = miles "+(this.km* 0.621371); 
+    }
+    static fromMiles(value) {
+        let d = new Distance();
+        d.miles = value;
+        return t;
+    }
 }
 </script>
 
@@ -90,8 +75,8 @@ constructor()
 {
 	super()
 	this.student=new Student(1421221042,"Abderrhman",5)
-	this.course= new Course("blm305","3.85","12/10/2018",202)
-	this.distance= new Distance(300,3)
+	this.course= new Course("blm305","3.85","12/10/2018",[202,354,404])
+	this.distance= new Distance(300)
 	this.point3d= new Point3D(4,7,8)
 	this.point= new Point(4,7)
 }	
@@ -142,35 +127,19 @@ class Point3D extends Point
 		return "(" + this.x + "," + this.y + "," + this.z + ")"
 	}
 }
-class Distance
-{
-	constructor(km,m)
-	{
-		this.km=km
-		this.miles=m
-	}
-	setKm(km)
-	{
-		this.km=km
-	}
-	getKm()
-	{
-		return this.km
-	}
-	
-	setMiles(m)
-	{
-		this.miles=m
-	}
-	getMiles()
-	{
-		return this.miles
-	}
-	
-	toString()
-	{
-		return this.km + " km"
-	}
+ class Distance{
+      constructor(km=0) {
+          this.km = Math.round(km);
+        }
+        get mile() {
+          return Math.round(this.km * 0.621371192);
+        }
+        set mile(value=32) {
+          this.km = Math.round(this.mile * 1.609344);
+        }
+        toString(){
+            return this.km+" km";
+        }
 	MtoKm(m){
 	 Ckm = Math.round(m / 100) / 10
 	 return Ckm;
