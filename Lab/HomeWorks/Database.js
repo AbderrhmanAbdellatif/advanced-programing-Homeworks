@@ -26,15 +26,7 @@ class Database {
         this.Filedata = "";
     }
 
-    getData() {
-        var myRequest = new Request("Students.txt");
-        fetch(myRequest).then(function(response) {
-            return response.text().then(function(text) {
-                Filedata = text;
-                console.log(Filedata)
-            });
-        });
-    }
+
 
 
 }

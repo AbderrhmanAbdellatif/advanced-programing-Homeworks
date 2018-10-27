@@ -19,11 +19,13 @@
             console.log("readData " + file);
             fetch(url + file)
                 .then(r => r.text(), )
-                .then(Filedata);
+                .then(Studentsdata);
         }
 
 
-        function Filedata(txt) {
+
+
+        function Studentsdata(txt) {
             console.log(txt);
 
         }
