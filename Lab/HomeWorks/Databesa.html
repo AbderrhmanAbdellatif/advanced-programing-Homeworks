@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="Database.js"></script>
+    <title>Students Database </title>
+</head>
+
+<body>
+    <h2 id=title></h2>
+
+    <script>
+        "use strict";
+        const url = "https://maeyler.github.io/JS/data/";
+
+        function readData(file) {
+            console.log("readData " + file);
+            fetch(url + file)
+                .then(r => r.text(), )
+                .then(Filedata);
+        }
+
+
+        function Filedata(txt) {
+            console.log(txt);
+
+        }
+    </script>
+
+
+
+
+    <button onClick=''>Random</button>
+    <button onClick=''>Best GPA</button>
+    <button onClick=''>Clear</button>
+
+
+
+    <script>
+        title.innerText = document.title;
+        //   sample.innerText = readData + "\n" + Filedata;
+        //   const keys = [],
+        //      vals = [];
+        readData("Students.txt")
+    </script>
+</body>
+
+</html>
