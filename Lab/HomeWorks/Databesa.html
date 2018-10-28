@@ -64,14 +64,12 @@
                 } else {
                     var  idMap=new Map();
                     var index=DB.indexs(DB.arrystu,gpashow.value);
-                
+                    var temp="";
                     for(let i=index+1;i<DB.arrystu.length;i++){
                         
-                        idMap.set(i,DB.arrystu[i].id);
+                          temp +=DB.arrystu[i].id+"\n";
                     }
-                  for (var [key, value] of idMap) {
-                   Numberofstuout.innerText =Numberofstuout.innerText +"( "+value+")"+" \n ";
-                  }
+                      Numberofstuout.innerText=temp;
                     
                 }
             }
