@@ -58,8 +58,8 @@
         }
 
         function randomStd() {
-            for (var [key, value] of cm) {
-                console.log(key + ' => ' + value);
+            for (var [key, value] of sm) {
+                Randomout.innerText += (key + ' => ' + value + " \n");
             }
 
         }
@@ -74,6 +74,40 @@
         readDatastu("Students.txt")
         readDatacor("Courses.txt")
     </script>
+
+    <hr />
+    <p>
+        <h3> Random Students </h3>
+        <p id=Randomout></p>
+    </p>
+    <hr />
+    <p>
+        <h3> Name &emsp; Average</h3>
+        <p id=outB></p>
+    </p>
+
+    <hr />
+    <p>
+        <h3> Name &emsp; Max</h3>
+        <p id=outC></p>
+
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html
