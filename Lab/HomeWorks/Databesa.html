@@ -36,6 +36,11 @@
             var cm = new Map();
             
             function givenstudent() {
+                
+                if(GPAStu.value==""){
+                                           alert("plz fill the ID Student");
+                   }else{
+                   
                 DB.bubbleSortid(DB.arrystu);
                  var firstIndex  = 0,
                  lastIndex   = DB.arrystu.length - 1,
@@ -51,9 +56,13 @@
                      
                  }
                     var o=((DB.arrystu[middleIndex].id != GPAStu.value) ? -1 : middleIndex);
+                    if(o==-1){
+                        alert("the ID studnet is it incorrect");
+                    }else{
                     CoursesGivenStuout.innerText  =(DB.arrystu[o].courses);
                 }
-                
+            }
+            }
             
             function NumofstuGpa() {
                 DB.bubbleSortgpa(DB.arrystu);   
@@ -107,7 +116,12 @@
                 sm = DB.addstudent(student);
 
             }
+            function txtclear(){
+                Randomout.innerText=" ";
+                Numberofstuout.innerText=" ";
+                CoursesGivenStuout.innerText=" "; 
 
+            }
             function randomStd() {
                 let hashtable = [];
                 let hashkey = [];
@@ -134,6 +148,7 @@
         <button onClick='NumofstuGpa()   '>above a given GPA</button>
         <button onClick='randomStd()'>Random</button>
         <button onClick='givenstudent()'>given student</button>
+         <button onClick='txtclear()'>clear</button>
         <script>
             title.innerText = document.title;
             readDatastu("Students.txt")
