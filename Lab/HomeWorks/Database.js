@@ -82,12 +82,27 @@ class Database {
         return coursesMap;
     }
 
-    bubbleSort(a) {
+    bubbleSortid(a) {
         var swapped;
         do {
             swapped = false;
             for (var i = 0; i < a.length - 1; i++) {
                 if (a[i].id > a[i + 1].id) {
+                    var temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+    }
+    
+      bubbleSortgpa(a) {
+        var swapped;
+        do {
+            swapped = false;
+            for (var i = 0; i < a.length - 1; i++) {
+                if (a[i].gpa > a[i + 1].gpa) {
                     var temp = a[i];
                     a[i] = a[i + 1];
                     a[i + 1] = temp;
