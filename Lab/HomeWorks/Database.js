@@ -27,12 +27,15 @@ class Database {
 
     }
     addstudent(s = []) {
+        this.s = new Student();
+        this.arrystu.push(s);
         var studentMap = new Map();
         for (let index = 0; index < s.length; index++) {
             this.studensset = new Student();
             for (let i = 0; i < s[index].length; i++) {
                 if (i == 0) {
                     this.studensset.id = parseInt(s[index][i]);
+                    this.arrystu[s].id = parseInt(s[index][i]);
                 }
                 if (i == 1) {
                     this.studensset.name = (s[index][i]);
