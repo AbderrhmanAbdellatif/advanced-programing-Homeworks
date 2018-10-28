@@ -21,7 +21,11 @@ class Student {
 
 }
 class Database {
-    constructor() {}
+    constructor() {
+        this.arrystu = [];
+        this.arrycor = [];
+
+    }
     addstudent(s = []) {
         var studentMap = new Map();
         for (let index = 0; index < s.length; index++) {
@@ -66,4 +70,8 @@ class Database {
         }
         return coursesMap;
     }
+
+
+
+
 }
