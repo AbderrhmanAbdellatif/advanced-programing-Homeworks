@@ -54,10 +54,13 @@
             for (let index = 0; index < studentDB.length; index++) {
                 student.push(studentDB[index].split("\t"));
             }
-
             sm = DB.addstudent(student);
+        }
 
-
+        function randomStd() {
+            for (var [key, value] of cm) {
+                console.log(key + ' => ' + value);
+            }
 
         }
     </script>
