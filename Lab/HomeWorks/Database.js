@@ -111,5 +111,18 @@ class Database {
             }
         } while (swapped);
     }
-
+    
+   indexs(arr=[],value){
+       console.log(arr);
+       let index=0;
+       for(let i=0;i<arr.length;i++){
+             if(value==arr[i].gpa){
+                 index=i;
+                 break;
+              }
+       }
+       return index;
+   }
+    
+    
 }

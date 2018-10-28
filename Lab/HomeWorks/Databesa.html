@@ -56,17 +56,23 @@
                 
             
             function NumofstuGpa() {
-                DB.bubbleSortgpa(DB.arrystu)
+                DB.bubbleSortgpa(DB.arrystu);   
                 Numberofstuout.innerText = " ";
                 var numbersets = new Set();
                 if (gpashow.value == '') {
                     alert("plz enter the GPA");
                 } else {
-                   for(let i=0;i<DB.arrystu.length;i++){
-                          if(gpashow.value<DB.arrystu[i].gpa){
-                                Numberofstuout.innerHTML+=DB.arrystu[i].id+"<br>";
-                          }
-                   }
+                    var  idMap=new Map();
+                    var index=DB.indexs(DB.arrystu,gpashow.value);
+                
+                    for(let i=index+1;i<DB.arrystu.length;i++){
+                        
+                        idMap.set(i,DB.arrystu[i].id);
+                    }
+                  for (var [key, value] of idMap) {
+                   Numberofstuout.innerText =Numberofstuout.innerText +"( "+value+")"+" \n ";
+                  }
+                    
                 }
             }
             function readDatastu(file) {
