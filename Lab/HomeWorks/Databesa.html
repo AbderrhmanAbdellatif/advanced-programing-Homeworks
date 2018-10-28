@@ -61,7 +61,7 @@
                     alert("plz enter the GPA");
                 } else {
                    
-            }
+                }
             }
             function readDatastu(file) {
                 console.log("readData " + file);
@@ -113,7 +113,7 @@
                 id = (hashkey[index] / 3);
                 for (let i = 0; i < hashtable.length; i++) {
                     if (hashtable[i][0] == id) {
-                        Randomout.innerText += hashtable[i][0] + " :=> " + hashtable[i][1] + "\n";
+                        Randomout.innerHTML += hashtable[i][0] + " :=> " + hashtable[i][1] + "<br>";
                         break;
                     }
                 }
