@@ -34,8 +34,8 @@
             var DB = new Database();
             var sm = new Map();
             var cm = new Map();
+            DB.bubbleSort(DB.arrystu);
             function givenstudent() {
-                 DB.bubbleSort(DB.arrystu);
                  var firstIndex  = 0,
                  lastIndex   = DB.arrystu.length - 1,
                  middleIndex =  Math.floor((lastIndex + firstIndex)/2);
@@ -60,7 +60,11 @@
                 if (gpashow.value == '') {
                     alert("plz enter the GPA");
                 } else {
-                   
+                   for(let i=0;i<DB.arrystu.length;i++){
+                          if(gpashow.value<DB.arrystu[i].gpa){
+                                Numberofstuout.innerHTML+=DB.arrystu[i].id+"<br>";
+                          }
+                   }
                 }
             }
             function readDatastu(file) {
