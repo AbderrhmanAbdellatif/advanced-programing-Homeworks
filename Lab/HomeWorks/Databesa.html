@@ -10,6 +10,12 @@
 
 <body>
     <h2 id=title></h2>
+     <p>
+          
+         GPA &emsp;<input type=text id=GPAStu style="10%">
+    
+    </p>
+    
     <style>
         body {
             background-image: url("https://car-images.bauersecure.com/pagefiles/73857/rr_dawn_blackbadge_08.jpg");
@@ -29,7 +35,32 @@
         var DB = new Database();
         var sm = new Map();
         var cm = new Map();
-
+        function givenstudent(){
+            
+        }
+        function NumofstuGpa(){
+             Numberofstuout.innerText=" ";
+           var  numbersets=new Set();
+              if(GPAStu.value==''){
+                alert("plz enter the GPA");
+               }else{
+                   alert("is taken long time plz wait ");
+                     DB.insertion_Sort(DB.arrystu);
+                   let start = 0
+                    let stop = DB.arrystu.length - 1
+                   let middle = Math.floor((start + stop) / 2)
+                   for(let index=0;index < DB.arrystu.length;index++){
+                          if(GPAStu.value<DB.arrystu[index].gpa){
+                             numbersets.add(DB.arrystu[index].id+" ===> GPA =  "+DB.arrystu[index].gpa);
+                          }
+                   }
+                   numbersets.forEach(NSG => {
+                    Numberofstuout.innerText+=(`${NSG} `+"\n");
+                    });
+                    
+               }
+        }
+        
         function readDatastu(file) {
             console.log("readData " + file);
             fetch(url + file)
@@ -54,8 +85,7 @@
             //for (var [key, value] of cm) {
             //   console.log(key + ' => ' + value);
             // }
-
-
+            
         }
 
         function studentsdata(txts) {
@@ -66,6 +96,7 @@
                 student.push(studentDB[index].split("\t"));
             }
             sm = DB.addstudent(student);
+            
         }
 
         function randomStd() {
@@ -93,9 +124,9 @@
     </script>
 
 
-
+   <button onClick='NumofstuGpa()   '>above a given GPA</button>
     <button onClick='randomStd()'>Random</button>
-
+     <button onClick='givenstudent()'>given student</button>
     <script>
         title.innerText = document.title;
         readDatastu("Students.txt")
@@ -109,32 +140,14 @@
     </p>
     <hr />
     <p>
-        <h3> Name &emsp; Average</h3>
-        <p id=outB></p>
+        <h3> Number of students above a given GPA </h3>
+        <p id=Numberofstuout></p>
     </p>
-
     <hr />
     <p>
-        <h3> Name &emsp; Max</h3>
-        <p id=outC></p>
-
+        <h3> Courses taken by a given student </h3>
+        <p id=CoursesGivenStuout></p>
     </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
