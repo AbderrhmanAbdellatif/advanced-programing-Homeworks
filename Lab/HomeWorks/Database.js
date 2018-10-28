@@ -41,9 +41,9 @@ class Database {
                     this.studensset.gpa = s[index][i];
                 }
                 if (i > 2) {
-                    this.studensset.courses.push(s[index][i]);
+                    this.studensset.courses.push(s[index][i] + "\t");
                 }
-                studentMap.set(this.studensset.id, this.studensset.name + " | " + this.studensset.gpa + " | " + this.studensset.courses);
+                studentMap.set(this.studensset.id, this.studensset.name + "     |      " + this.studensset.gpa + "      |      " + this.studensset.courses);
             }
         }
         return studentMap;
