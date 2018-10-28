@@ -45,20 +45,9 @@
                 alert("plz enter the GPA");
                }else{
                    alert("is taken long time plz wait ");
-                     DB.insertion_Sort(DB.arrystu);
-                   let start = 0
-                    let stop = DB.arrystu.length - 1
-                   let middle = Math.floor((start + stop) / 2)
-                   for(let index=0;index < DB.arrystu.length;index++){
-                          if(GPAStu.value<DB.arrystu[index].gpa){
-                             numbersets.add(DB.arrystu[index].id+" ===> GPA =  "+DB.arrystu[index].gpa);
-                          }
-                   }
-                   numbersets.forEach(NSG => {
-                    Numberofstuout.innerText+=(`${NSG} `+"\n");
-                    });
-                    
-               }
+                     DB.bubbleSort(DB.arrystu);
+                   console.log(DB.arrystu);
+        }
         }
         
         function readDatastu(file) {

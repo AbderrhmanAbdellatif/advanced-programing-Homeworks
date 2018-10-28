@@ -84,37 +84,19 @@ class Database {
         return coursesMap;
     }
 
-insertion_Sort(arr=[])
-{
-           
-          // this.stuarr = new Student();
-          // var arr=[];
-          //  arr.push(this.stuarr);
-          //  arr.push(a);e
-  for (var i = 1; i < arr.length; i++) 
-  {
-    if (arr[i].gpa < arr[0].gpa) 
-    {
-      //move current element to the first position
-      arr.unshift(arr.splice(i,1)[0]);
-    } 
-    else if (arr[i].gpa > arr[i-1].gpa) 
-    {
-      //leave current element where it is
-      continue;
-    } 
-    else {
-      //find where element should go
-      for (var j = 1; j < i; j++) {
-        if (arr[i].gpa > arr[j-1].gpa && arr[i].gpa < arr[j].gpa) 
-        {
-          //move element
-          arr.splice(j,0,arr.splice(i,1)[0]);
+   bubbleSort(a) {
+     var swapped;
+     do {
+        swapped = false;
+        for (var i=0; i < a.length-1; i++) {
+            if (a[i].gpa > a[i+1].gpa) {
+                var temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                swapped = true;
+            }
         }
-      }
-    }
-  }
-  return arr;
+    } while (swapped);
 }
 
 
