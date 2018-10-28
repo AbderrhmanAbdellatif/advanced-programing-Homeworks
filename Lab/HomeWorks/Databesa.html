@@ -1,142 +1,143 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="Database.js"></script>
-    <title>Students Database </title>
-</head>
-
-<body>
-    <h2 id=title></h2>
-     <p>
-          
-         GPA &emsp;<input type=text id=GPAStu style="10%">
-    
-    </p>
-    
-    <style>
-        body {
-            background-image: url("https://car-images.bauersecure.com/pagefiles/73857/rr_dawn_blackbadge_08.jpg");
-            background-color: #cccccc;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="Database.js"></script>
+        <title>Students Database </title>
+    </head>
+    <body>
+        <h2 id=title></h2>
+        <p>
+            GPA : &emsp;<input type=text id=gpashow style="10%">
+        </p>
         
-        p {
-            color: indianred;
-            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        }
-    </style>
-    <script>
-        "use strict";
-        const url = "https://maeyler.github.io/JS/data/";
-        var student = [];
-        var courses = [];
-        var DB = new Database();
-        var sm = new Map();
-        var cm = new Map();
-        function givenstudent(){
-            
-        }
-        function NumofstuGpa(){
-             Numberofstuout.innerText=" ";
-           var  numbersets=new Set();
-              if(GPAStu.value==''){
-                alert("plz enter the GPA");
-               }else{
-                   alert("is taken long time plz wait ");
-                     DB.bubbleSort(DB.arrystu);
-                   console.log(DB.arrystu);
-        }
-        }
-        
-        function readDatastu(file) {
-            console.log("readData " + file);
-            fetch(url + file)
-                .then(r => r.text(), )
-                .then(studentsdata);
-        }
-
-        function readDatacor(file) {
-            console.log("readData " + file);
-            fetch(url + file)
-                .then(r => r.text(), )
-                .then(coursesdata);
-        }
-
-        function coursesdata(txtc) {
-            var coursesDB = txtc.split("\n");
-            //  var courses = new Set();
-            for (let index = 0; index < coursesDB.length; index++) {
-                courses.push(coursesDB[index].split("\t"));
+        <p>
+            Student ID : &emsp;<input type=text id=GPAStu style="10%">
+        </p>
+        <style>
+            body {
+                background-image: url("https://car-images.bauersecure.com/pagefiles/73857/rr_dawn_blackbadge_08.jpg");
+                background-color: #cccccc;
             }
-            cm = DB.addcourses(courses);
-            //for (var [key, value] of cm) {
-            //   console.log(key + ' => ' + value);
-            // }
-            
-        }
 
-        function studentsdata(txts) {
-            var studentDB = txts.split("\n");
-
-            // var student = new Set();
-            for (let index = 0; index < studentDB.length; index++) {
-                student.push(studentDB[index].split("\t"));
+            p {
+                color: indianred;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
             }
-            sm = DB.addstudent(student);
-            
-        }
-
-        function randomStd() {
-            let hashtable = [];
-            let hashkey = [];
-            let index = 0;
-            let id = 0;
-
-            for (var key of sm) {
-                hashtable.push(key);
-            }
-            for (let key = 0; key < hashtable.length; key++) {
-                hashkey.push((hashtable[key][0]) * 3);
-            }
-            index = Math.floor((Math.random() * (hashkey.length - 1)) + 1);
-            id = (hashkey[index] / 3);
-            for (let i = 0; i < hashtable.length; i++) {
-                if (hashtable[i][0] == id) {
-                    Randomout.innerText += hashtable[i][0] + " :=> " + hashtable[i][1] + "\n";
-                    break;
+        </style>
+        <script>
+            "use strict";
+            const url = "https://maeyler.github.io/JS/data/";
+            var student = [];
+            var courses = [];
+            var DB = new Database();
+            var sm = new Map();
+            var cm = new Map();
+            function givenstudent() {
+                 DB.bubbleSort(DB.arrystu);
+                 var firstIndex  = 0,
+                 lastIndex   = DB.arrystu.length - 1,
+                 middleIndex =  Math.floor((lastIndex + firstIndex)/2);
+                 while(DB.arrystu[middleIndex].id != GPAStu.value && firstIndex < lastIndex){
+                     
+                     if (GPAStu.value < DB.arrystu[middleIndex].id){
+                             lastIndex = middleIndex - 1;
+                      }else if (GPAStu.value > DB.arrystu[middleIndex].id){
+                           firstIndex = middleIndex + 1;
+                      }
+                     middleIndex = Math.floor((lastIndex + firstIndex)/2);
+                     
+                 }
+                    var o=((DB.arrystu[middleIndex].id != GPAStu.value) ? -1 : middleIndex);
+                    CoursesGivenStuout.innerText  =(DB.arrystu[o].courses);
                 }
+                
+            
+            function NumofstuGpa() {
+                Numberofstuout.innerText = " ";
+                var numbersets = new Set();
+                if (gpashow.value == '') {
+                    alert("plz enter the GPA");
+                } else {
+                   
             }
-            index = 0;
-        }
-    </script>
+            }
+            function readDatastu(file) {
+                console.log("readData " + file);
+                fetch(url + file).then(r=>r.text(), ).then(studentsdata);
+            }
 
+            function readDatacor(file) {
+                console.log("readData " + file);
+                fetch(url + file).then(r=>r.text(), ).then(coursesdata);
+            }
 
-   <button onClick='NumofstuGpa()   '>above a given GPA</button>
-    <button onClick='randomStd()'>Random</button>
-     <button onClick='givenstudent()'>given student</button>
-    <script>
-        title.innerText = document.title;
-        readDatastu("Students.txt")
-        readDatacor("Courses.txt")
-    </script>
+            function coursesdata(txtc) {
+                var coursesDB = txtc.split("\n");
+                //  var courses = new Set();
+                for (let index = 0; index < coursesDB.length; index++) {
+                    courses.push(coursesDB[index].split("\t"));
+                }
+                cm = DB.addcourses(courses);
+                //for (var [key, value] of cm) {
+                //   console.log(key + ' => ' + value);
+                // }
 
-    <hr />
-    <p>
-        <h3> Random Students </h3>
+            }
+
+            function studentsdata(txts) {
+                var studentDB = txts.split("\n");
+
+                // var student = new Set();
+                for (let index = 0; index < studentDB.length; index++) {
+                    student.push(studentDB[index].split("\t"));
+                }
+                sm = DB.addstudent(student);
+
+            }
+
+            function randomStd() {
+                let hashtable = [];
+                let hashkey = [];
+                let index = 0;
+                let id = 0;
+
+                for (var key of sm) {
+                    hashtable.push(key);
+                }
+                for (let key = 0; key < hashtable.length; key++) {
+                    hashkey.push((hashtable[key][0]) * 3);
+                }
+                index = Math.floor((Math.random() * (hashkey.length - 1)) + 1);
+                id = (hashkey[index] / 3);
+                for (let i = 0; i < hashtable.length; i++) {
+                    if (hashtable[i][0] == id) {
+                        Randomout.innerText += hashtable[i][0] + " :=> " + hashtable[i][1] + "\n";
+                        break;
+                    }
+                }
+                index = 0;
+            }
+        </script>
+        <button onClick='NumofstuGpa()   '>above a given GPA</button>
+        <button onClick='randomStd()'>Random</button>
+        <button onClick='givenstudent()'>given student</button>
+        <script>
+            title.innerText = document.title;
+            readDatastu("Students.txt")
+            readDatacor("Courses.txt")
+        </script>
+        <hr/>
+        <p>
+        <h3>Random Students </h3>
         <p id=Randomout></p>
-    </p>
-    <hr />
-    <p>
-        <h3> Number of students above a given GPA </h3>
-        <p id=Numberofstuout></p>
-    </p>
-    <hr />
-    <p>
-        <h3> Courses taken by a given student </h3>
-        <p id=CoursesGivenStuout></p>
-    </p>
-</body>
-
-</html>
+</p><hr/>
+<p>
+<h3>Number of students above a given GPA </h3>
+<p id=Numberofstuout></p>
+</p><hr/>
+<p>
+<h3>Courses taken by a given student </h3>
+<p id=CoursesGivenStuout></p>
+</p></body></html>
