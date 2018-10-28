@@ -17,6 +17,8 @@
         var student = [];
         var courses = [];
         var DB = new Database();
+        var sm = new Map();
+        var cm = new Map();
 
         function readDatastu(file) {
             console.log("readData " + file);
@@ -38,8 +40,11 @@
             for (let index = 0; index < coursesDB.length; index++) {
                 courses.push(coursesDB[index].split("\t"));
             }
+            cm = DB.addcourses(courses);
+            for (var [key, value] of cm) {
+                console.log(key + ' => ' + value);
+            }
 
-            // console.log(txtc);
 
         }
 
@@ -49,7 +54,11 @@
             for (let index = 0; index < studentDB.length; index++) {
                 student.push(studentDB[index].split("\t"));
             }
-            DB.addstudent(student);
+
+            sm = DB.addstudent(student);
+
+
+
         }
     </script>
 
@@ -59,12 +68,9 @@
 
     <script>
         title.innerText = document.title;
-        //   sample.innerText = readData + "\n" + Filedata;
-        //   const keys = [],
-        //      vals = [];
         readDatastu("Students.txt")
         readDatacor("Courses.txt")
     </script>
 </body>
 
-</html>
+</html
