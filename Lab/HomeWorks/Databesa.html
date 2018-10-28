@@ -14,6 +14,9 @@
     <script>
         "use strict";
         const url = "https://maeyler.github.io/JS/data/";
+        var student = [];
+        var courses = [];
+        var DB = new Database();
 
         function readDatastu(file) {
             console.log("readData " + file);
@@ -30,28 +33,27 @@
         }
 
         function coursesdata(txtc) {
-            console.log(txtc);
+            var coursesDB = txtc.split("\n");
+            //  var courses = new Set();
+            for (let index = 0; index < coursesDB.length; index++) {
+                courses.push(coursesDB[index].split("\t"));
+            }
+
+            // console.log(txtc);
 
         }
 
         function studentsdata(txts) {
             var studentDB = txts.split("\n");
-            var student = new Set();
+            // var student = new Set();
             for (let index = 0; index < studentDB.length; index++) {
-                student.add(studentDB[index].split("\t"));
+                student.push(studentDB[index].split("\t"));
             }
-            student.forEach(stu => {
-                console.log('${stu}');
-            });
+            DB.addstudent(student);
         }
     </script>
 
 
-
-
-    <button onClick=''>Random</button>
-    <button onClick=''>Best GPA</button>
-    <button onClick=''>Clear</button>
 
 
 
@@ -65,4 +67,4 @@
     </script>
 </body>
 
-</htm
+</html>
