@@ -15,34 +15,30 @@
         "use strict";
         const url = "https://maeyler.github.io/JS/data/";
 
-        function readDatastu(file) {
+        function readData(file) {
             console.log("readData " + file);
             fetch(url + file)
                 .then(r => r.text(), )
-                .then(studentsdata);
+                .then(Studentsdata);
         }
 
-        function readDatacor(file) {
+        function readData(file) {
             console.log("readData " + file);
             fetch(url + file)
                 .then(r => r.text(), )
-                .then(coursesdata);
+                .then(Coursesdata);
         }
 
-        function coursesdata(txtc) {
-            console.log(txtc);
+        function Coursesdata(txt) {
+            console.log(txt);
 
         }
 
-        function studentsdata(txts) {
-            var studentDB = txts.split("\n");
-            var student = new Set();
-            for (let index = 0; index < studentDB.length; index++) {
-                student.add(studentDB[index].split("\t"));
+        function Studentsdata(txt) {
+            var Students = txt.split("\n");
+            for (let index = 0; index < Students.length; index++) {
+                congsole.log(Students[index]);
             }
-            student.forEach(stu => {
-                console.log('${stu}');
-            });
         }
     </script>
 
@@ -60,9 +56,9 @@
         //   sample.innerText = readData + "\n" + Filedata;
         //   const keys = [],
         //      vals = [];
-        readDatastu("Students.txt")
-        readDatacor("Courses.txt")
+        readData("Students.txt")
+        readData("Courses.txt")
     </script>
 </body>
 
-</htm
+</html>
