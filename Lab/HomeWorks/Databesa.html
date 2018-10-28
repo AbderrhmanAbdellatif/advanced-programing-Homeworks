@@ -9,11 +9,11 @@
     <body>
         <h2 id=title></h2>
         <p>
-            GPA : &emsp;<input type=text id=gpashow style="10%">
+            GPA : &emsp;<input type=Number id=gpashow style="10%">
         </p>
         
         <p>
-            Student ID : &emsp;<input type=text id=GPAStu style="10%">
+            Student ID : &emsp;<input type=Number id=GPAStu style="10%">
         </p>
         <style>
             body {
@@ -58,20 +58,21 @@
             function NumofstuGpa() {
                 DB.bubbleSortgpa(DB.arrystu);   
                 Numberofstuout.innerText = " ";
-                var numbersets = new Set();
                 if (gpashow.value == '') {
                     alert("plz enter the GPA");
-                } else {
-                    var  idMap=new Map();
-                    var index=DB.indexs(DB.arrystu,gpashow.value);
-                    var temp="";
-                    for(let i=index+1;i<DB.arrystu.length;i++){
-                        
-                          temp +=DB.arrystu[i].id+"\n";
-                    }
-                      Numberofstuout.innerText=temp;
-                    
-                }
+                  } else {
+                      if(gpashow.value >1.0 && gpashow.value < 3.99){
+                       var index=DB.indexs(DB.arrystu,gpashow.value);
+                         var temp="";
+                         for(let i=index+1;i<DB.arrystu.length;i++){
+                              temp +=DB.arrystu[i].id+"\n";
+                         }
+                            Numberofstuout.innerText=temp;
+                       } else{
+                           alert("plz enter the GPA  between 1.0 - 3.99 ");
+                           gpashow.value=" ";
+                       }
+                }   
             }
             function readDatastu(file) {
                 console.log("readData " + file);
