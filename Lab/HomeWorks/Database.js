@@ -10,11 +10,11 @@ class Course {
 
 }
 class Student {
-    constructor(id=0, name="", gpa=0, courses=[]) {
+    constructor(id=0, name="", gpa=0, cor=[]) {
         this.id = id
         this.name = name
         this.gpa = gpa
-        this.courses = courses
+        this.cor = cor
     }
 
 }
@@ -46,10 +46,10 @@ class Database {
                     this.arrystu[index].gpa = s[index][i];
                 }
                 if (i > 2) {
-                    this.studensset.courses.push(s[index][i] + "\t");
-                    this.arrystu[index].courses.push(s[index][i] + "\t")
+                    this.studensset.cor.push(s[index][i]);
+                    this.arrystu[index].cor.push(s[index][i])
                 }
-                studentMap.set(this.studensset.id, this.studensset.name + "     |      " + this.studensset.gpa + "      |      " + this.studensset.courses);
+                studentMap.set(this.studensset.id, this.studensset.name + "     |      " + this.studensset.gpa + "      |      " + this.studensset.cor);
             }
         }
         return studentMap;
