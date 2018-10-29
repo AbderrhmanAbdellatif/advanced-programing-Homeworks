@@ -45,7 +45,23 @@
             var DB = new Database();
             var sm = new Map();
             var cm = new Map();
-    
+            function Totalnumber(){
+                var roomlist="";
+                var counter =0;
+                if(rmid.value==''){
+                   alert("plz give Room ");
+                   }else{
+                    for (var [key, value] of cm) {
+                     if(value.includes(rmid.value)){
+                         counter++;
+                      }
+                 }
+                  TotalNUout.innerText="Total Number : "+counter;     
+            }
+            }
+            function Courselist(){
+                  
+            }
             function Studentlist(){
                 if(Corid.value==''){
                    alert("plz give Course ");
@@ -54,7 +70,6 @@
                 for (var [key, value] of cm) {
                       if(key!=Corid.value){
                           //alert("wrong input coruse");
-                          
                        }else{
                            for(let i =0 ;i<DB.arrystu.length;i++){
                                if(DB.arrystu[i].cor.includes(Corid.value)){
@@ -207,6 +222,7 @@
         <button onClick='Examschedule()'>Exam schedule</button>
         <button onClick='Studentlist()'>Student list</button>
         <button onClick='Courselist()'> Course list</button>
+        <button onClick='Totalnumber()'>Total Number</button>
         <button onClick='txtclear()'>Clear</button>
         <script>
             title.innerText = document.title;
