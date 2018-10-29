@@ -11,18 +11,17 @@
         <p>
             GPA : &emsp;<input type=Number id=gpashow style="10%">
         </p>
-        
         <p>
             Student ID : &emsp;<input type=Number id=GPAStu style="10%">
         </p>
         <style>
             body {
-                background-image: url("https://car-images.bauersecure.com/pagefiles/73857/rr_dawn_blackbadge_08.jpg");
+                background-image: url("https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1b3867bc56291d134101a193b3b8ad92&w=1000&q=80");
                 background-color: #cccccc;
             }
 
             p {
-                color: white;
+                color: aqua;
                 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
             }
         </style>
@@ -34,54 +33,54 @@
             var DB = new Database();
             var sm = new Map();
             var cm = new Map();
-            
+
             function givenstudent() {
-                
-                if(GPAStu.value==""){
-                                           alert("plz fill the ID Student");
-                   }else{
-                   
-                DB.bubbleSortid(DB.arrystu);
-                 var firstIndex  = 0,
-                 lastIndex   = DB.arrystu.length - 1,
-                 middleIndex =  Math.floor((lastIndex + firstIndex)/2);
-                 while(DB.arrystu[middleIndex].id != GPAStu.value && firstIndex < lastIndex){
-                     
-                     if (GPAStu.value < DB.arrystu[middleIndex].id){
-                             lastIndex = middleIndex - 1;
-                      }else if (GPAStu.value > DB.arrystu[middleIndex].id){
-                           firstIndex = middleIndex + 1;
-                      }
-                     middleIndex = Math.floor((lastIndex + firstIndex)/2);
-                     
-                 }
-                    var o=((DB.arrystu[middleIndex].id != GPAStu.value) ? -1 : middleIndex);
-                    if(o==-1){
+
+                if (GPAStu.value == "") {
+                    alert("plz fill the ID Student");
+                } else {
+
+                    DB.bubbleSortid(DB.arrystu);
+                    var firstIndex = 0
+                      , lastIndex = DB.arrystu.length - 1
+                      , middleIndex = Math.floor((lastIndex + firstIndex) / 2);
+                    while (DB.arrystu[middleIndex].id != GPAStu.value && firstIndex < lastIndex) {
+
+                        if (GPAStu.value < DB.arrystu[middleIndex].id) {
+                            lastIndex = middleIndex - 1;
+                        } else if (GPAStu.value > DB.arrystu[middleIndex].id) {
+                            firstIndex = middleIndex + 1;
+                        }
+                        middleIndex = Math.floor((lastIndex + firstIndex) / 2);
+
+                    }
+                    var o = ((DB.arrystu[middleIndex].id != GPAStu.value) ? -1 : middleIndex);
+                    if (o == -1) {
                         alert("the ID studnet is it incorrect");
-                    }else{
-                    CoursesGivenStuout.innerText  =(DB.arrystu[o].courses);
+                    } else {
+                        CoursesGivenStuout.innerText = (DB.arrystu[o].courses);
+                    }
                 }
             }
-            }
-            
+
             function NumofstuGpa() {
-                DB.bubbleSortgpa(DB.arrystu);   
+                DB.bubbleSortgpa(DB.arrystu);
                 Numberofstuout.innerText = " ";
                 if (gpashow.value == '') {
                     alert("plz enter the GPA");
-                  } else {
-                      if(gpashow.value >1.0 && gpashow.value < 3.99){
-                       var index=DB.indexs(DB.arrystu,gpashow.value);
-                         var temp="";
-                         for(let i=index+1;i<DB.arrystu.length;i++){
-                              temp +=DB.arrystu[i].id+"\n";
-                         }
-                            Numberofstuout.innerText=temp;
-                       } else{
-                           alert("plz enter the GPA  between 1.0 - 3.99 ");
-                           gpashow.value=" ";
-                       }
-                }   
+                } else {
+                    if (gpashow.value > 1.0 && gpashow.value < 3.99) {
+                        var index = DB.indexs(DB.arrystu, gpashow.value);
+                        var temp = "";
+                        for (let i = index + 1; i < DB.arrystu.length; i++) {
+                            temp += DB.arrystu[i].id + "\n";
+                        }
+                        Numberofstuout.innerText = temp;
+                    } else {
+                        alert("plz enter the GPA  between 1.0 - 3.99 ");
+                        gpashow.value = " ";
+                    }
+                }
             }
             function readDatastu(file) {
                 console.log("readData " + file);
@@ -116,10 +115,10 @@
                 sm = DB.addstudent(student);
 
             }
-            function txtclear(){
-                Randomout.innerText=" ";
-                Numberofstuout.innerText=" ";
-                CoursesGivenStuout.innerText=" "; 
+            function txtclear() {
+                Randomout.innerText = " ";
+                Numberofstuout.innerText = " ";
+                CoursesGivenStuout.innerText = " ";
 
             }
             function randomStd() {
@@ -148,7 +147,7 @@
         <button onClick='NumofstuGpa()   '>above a given GPA</button>
         <button onClick='randomStd()'>Random</button>
         <button onClick='givenstudent()'>given student</button>
-         <button onClick='txtclear()'>clear</button>
+        <button onClick='txtclear()'>clear</button>
         <script>
             title.innerText = document.title;
             readDatastu("Students.txt")
@@ -157,7 +156,7 @@
         <hr/>
         <p>
         <h3>Random Students </h3>
-        <h3>name  &emsp; &emsp; &emsp; &emsp; &emsp; GPA  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Coruses </h3>
+        <h3>name  &emsp;&emsp;&emsp;&emsp;&emsp;GPA  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Coruses </h3>
         <p id=Randomout></p>
 </p><hr/>
 <p>
@@ -167,4 +166,8 @@
 <p>
 <h3>Courses taken by a given student </h3>
 <p id=CoursesGivenStuout></p>
+</p><p>
+<hr/>
+<h3>Exam schedule for a given student </h3>
+<p id=Examscheduleout></p>
 </p></body></html>
