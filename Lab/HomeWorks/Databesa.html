@@ -100,29 +100,34 @@
                 
             } 
             function Examschedule(){
-                 // hala yapmadim 
+                  
                  if (ExsId.value == "") {
                     alert("plz give ID Student to Exam schedule text ");
                 } else {
-
-                    DB.bubbleSortid(DB.arrystu);
-                    var firstIndex = 0
-                      , lastIndex = DB.arrystu.length - 1
-                      , middleIndex = Math.floor((lastIndex + firstIndex) / 2);
-                    while (DB.arrystu[middleIndex].id != GPAStu.value && firstIndex < lastIndex) {
-
-                        if (ExsId.value < DB.arrystu[middleIndex].id) {
-                            lastIndex = middleIndex - 1;
-                        } else if (ExsId.value > DB.arrystu[middleIndex].id) {
-                            firstIndex = middleIndex + 1;
-                        }
-                        middleIndex = Math.floor((lastIndex + firstIndex) / 2);
-
+                    var idstu=0;
+                    var schedulelist="";
+                   for (var [key, value] of sm) {
+                      if(key==ExsId.value){
+                             idstu=key;
+                          break;
+                         }
                     }
-                    var o = ((DB.arrystu[middleIndex].id != ExsId.value) ? -1 : middleIndex);
-                    if (o == -1) {
-                        alert("the ID studnet is it incorrect");
-                    }
+                    var corarr=[];
+                    for(let i=0;DB.arrystu.length;i++){
+                                 if(idstu==DB.arrystu[i].id){
+                                     corarr.push(DB.arrystu[i].cor);
+                                     break;
+                                    }
+                             }
+                    
+                 for (var [key, value] of cm) {
+                      if(corarr[0].includes(key)){
+                          schedulelist+=value+"\n";
+                         }
+                   }
+                    
+                    Examscheduleout.innerText=schedulelist;
+                    
             }
             }
             function givenstudent() {
@@ -232,7 +237,7 @@
                 index = 0;
             }
         </script>
-        <button onClick='NumofstuGpa()   '>Above a given GPA</button>
+        <button onClick='NumofstuGpa()'>Above a given GPA</button>
         <button onClick='randomStd()'>Random</button>
         <button onClick='givenstudent()'>Given student</button>
         <button onClick='Examschedule()'>Exam schedule</button>
