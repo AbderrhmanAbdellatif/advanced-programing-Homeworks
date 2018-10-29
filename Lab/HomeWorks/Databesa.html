@@ -9,21 +9,25 @@
     <body>
         <h2 id=title></h2>
         <p>
-            GPA : &emsp;<input type=Number id=gpashow style="10%">
+            GPA : &emsp;<input type=Number id=gpashow style="10%"> enter the GPA to  show the upper records 
         </p>
         <p>
-            Student ID : &emsp;<input type=Number id=GPAStu style="10%">
-        </p>
-        
-        <p>
-            Find Exam schedule   : &emsp;<input type=Number id=ExsId style="10%">
+            Student ID : &emsp;<input type=Number id=GPAStu style="10%"> enter the ID to show  the taken courses 
         </p>
         
         <p>
-            Room  : &emsp;<input type=text id=rmid style="10%">
+            Find Exam schedule   : &emsp;<input type=Number id=ExsId style="10%"> enter the ID to show you Exam schedule
+        </p>
+        
+        <p>
+             Exam Room  : &emsp;<input type=text id=ExRm style="10%"> enter the Classrom number to show Course list 
+        </p>
+        
+        <p>
+            Room  : &emsp;<input type=text id=rmid style="10%"> enter the Room to show Total Numbers
         </p>
         <p>
-             Course : &emsp;<input type=text id=Corid style="10%">
+             Course : &emsp;<input type=text id=Corid style="10%"> enter the course here to  show the students taken this coruse 
         </p>
         
         <style>
@@ -61,6 +65,18 @@
             }
             function Courselist(){
                   
+                var corlist="";
+                if(ExRm.value==''){
+                   alert("plz give exam Room ");
+                   }else{
+                    for (var [key, value] of cm) {
+                     if(value.includes(ExRm.value)){
+                         corlist+="\t"+key+"\n";
+                      }
+                 }
+                  Corlistout.innerText=corlist;     
+            }
+                
             }
             function Studentlist(){
                 if(Corid.value==''){
@@ -255,6 +271,8 @@
 <p>
 <hr/>
 <h3>Course list for a given exam room</h3>
+        <h3>&emsp;&emsp;&emsp;&emsp;&emsp;Coruses </h3>
+
 <p id=Corlistout></p>
 </p>
 <p>
