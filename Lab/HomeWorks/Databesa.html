@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="Database.js"></script>
+        <title>Students Database </title>
+    </head>
+    <body>
+        <h2 id=title></h2>
+        <p>
+             GPA : &emsp;<input type=Number id=gpashow style="10%"> <button onClick='NumofstuGpa()'>Above a given GPA</button>  enter the GPA to  show the upper records 
+        </p>
+        
+        <p>
+            Student ID : &emsp;<input type=Number id=GPAStu style="10%">         <button onClick='givenstudent()'>Given student</button>
+              enter the ID to show  the taken courses 
+        </p>
+        
+        <p>
+            Find Exam schedule   : &emsp;<input type=Number id=ExsId style="10%">         <button onClick='Examschedule()'>Exam schedule</button>
+ enter the ID to show you Exam schedule
+        </p>
+        
+        <p>
+             Exam Room  : &emsp;<input type=text id=ExRm style="10%">         <button onClick='Courselist()'> Course list</button>
+ enter the Classrom number to show Course list 
+        </p>
+        
+        <p>
+            Room  : &emsp;<input type=text id=rmid style="10%">         <button onClick='Totalnumber()'>Total Number</button>
+  enter the Room to show Total Numbers
+        </p>
+        <p>
+             Course : &emsp;<input type=text id=Corid style="10%">         <button onClick='Studentlist()'>Student list</button>
+ enter the course here to  show the students taken this coruse 
+        </p>
+        
+        <style>
+            body {
+                background-image: url("https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1b3867bc56291d134101a193b3b8ad92&w=1000&q=80");
+                background-color: #cccccc;
+            }
+
+            p {
+                color: darkred;
+            }
+            
+            
+            
+        </style>
+        <style>
+    table {
+        width:400px;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    table.t01 tr:nth-child(even) {
+        background-color: #eee;
+    }
+    table.t01 tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    table.t01 th {
+        background-color: black;
+        color: white;
+    }
+</style>
+        <script>
+            "use strict";
+            const url = "https://maeyler.github.io/JS/data/";
+            var student = [];
+            var courses = [];
+            var DB = new Database();
+            var sm = new Map();
+            var cm = new Map();
+            function Totalnumber(){
+                var roomlist="";
+                var counter =0;
+                if(rmid.value==''){
+                   alert("plz give Room ");
+                   }else{
+                    for (var [key, value] of cm) {
+                     if(value.includes(rmid.value)){
+                         counter++;
+                      }
+                 }
+                  TotalNUout.innerText="Total Number : "+counter;     
+            }
+            }
+            function Courselist(){
+                  
+                var corlist="";
+                if(ExRm.value==''){
+                   alert("plz give exam Room ");
+                   }else{
+                    for (var [key, value] of cm) {
+                     if(value.includes(ExRm.value)){
+                         corlist+="\t"+key+"\n";
+                      }
+                 }
+                  Corlistout.innerText=corlist;     
+            }
+                
+            }
+            function Studentlist(){
+                if(Corid.value==''){
+                   alert("plz give Course ");
+                   }else{
+                var corstulist="";
+                for (var [key, value] of cm) {
+                      if(key!=Corid.value){
+                          //alert("wrong input coruse");
+                       }else{
+                           for(let i =0 ;i<DB.arrystu.length;i++){
+                               if(DB.arrystu[i].cor.includes(Corid.value)){
+                                   corstulist+= "ID : "+DB.arrystu[i].id+" , name : "+DB.arrystu[i].name+" , GPA : "+DB.arrystu[i].gpa+"\n";
+                                }
+                           }
+                           break;
+                       }
+                 }
+                    Stulistout.innerText =corstulist;
+             }
+                
+            } 
+            function Examschedule(){
+                  
+                 if (ExsId.value == "") {
+                    alert("plz give ID Student to Exam schedule text ");
+                } else {
+                    var idstu=0;
+                    var schedulelist="";
+                   for (var [key, value] of sm) {
+                      if(key==ExsId.value){
+                             idstu=key;
+                          break;
+                         }
+                    }
+                    var corarr=[];
+                    for(let i=0;DB.arrystu.length;i++){
+                                 if(idstu==DB.arrystu[i].id){
+                                     corarr.push(DB.arrystu[i].cor);
+                                     break;
+                                    }
+                             }
+                    
+                 for (var [key, value] of cm) {
+                      if(corarr[0].includes(key)){
+                          schedulelist+="Name :"+key+" ==> "+value+"\n";
+                         }
+                   }
+                    
+                    Examscheduleout.innerText=schedulelist;
+                    
+            }
+            }
+            function givenstudent() {
+
+                if (GPAStu.value == "") {
+                    alert("plz fill the ID Student");
+                } else {
+
+                    DB.bubbleSortid(DB.arrystu);
+                    var firstIndex = 0
+                      , lastIndex = DB.arrystu.length - 1
+                      , middleIndex = Math.floor((lastIndex + firstIndex) / 2);
+                    while (DB.arrystu[middleIndex].id != GPAStu.value && firstIndex < lastIndex) {
+
+                        if (GPAStu.value < DB.arrystu[middleIndex].id) {
+                            lastIndex = middleIndex - 1;
+                        } else if (GPAStu.value > DB.arrystu[middleIndex].id) {
+                            firstIndex = middleIndex + 1;
+                        }
+                        middleIndex = Math.floor((lastIndex + firstIndex) / 2);
+
+                    }
+                    var o = ((DB.arrystu[middleIndex].id != GPAStu.value) ? -1 : middleIndex);
+                    if (o == -1) {
+                        alert("the ID studnet is it incorrect");
+                    } else {
+                        CoursesGivenStuout.innerText = (DB.arrystu[o].cor);
+                    }
+                }
+            }
+            function Best(){
+                var arrgpa=[];
+                for(let i=0;i<DB.arrystu.length;i++){
+                    arrgpa.push(parseFloat(DB.arrystu[i].gpa));
+                }
+                bestGPAout.innerText=Math.max(...arrgpa);
+                
+            }
+            function NumofstuGpa() {
+                DB.bubbleSortgpa(DB.arrystu);
+                Numberofstuout.innerText = " ";
+                if (gpashow.value == '') {
+                    alert("plz enter the GPA");
+                } else { 
+                    let counter=1;
+                    if (gpashow.value > 1.0 && gpashow.value < 3.99) {
+                        var index = DB.indexs(DB.arrystu, gpashow.value);
+                        var temp ="";
+                        for (let i = index + 1; i < DB.arrystu.length; i++) {
+                            temp += DB.arrystu[i].id +"\n";
+                            counter++;
+                        }
+                        Numberofstuout.innerText = temp+"\n"+"counter of GPA : "+counter;
+                    } else {
+                        alert("plz enter the GPA  between 1.0 - 3.99 ");
+                        gpashow.value = " ";
+                    }
+                }
+            }
+            function readDatastu(file) {
+                console.log("readData " + file);
+                fetch(url + file).then(r=>r.text(), ).then(studentsdata);
+            }
+            function readDatacor(file) {
+                console.log("readData " + file);
+                fetch(url + file).then(r=>r.text(), ).then(coursesdata);
+                
+            }
+            function coursesdata(txtc) {
+                var coursesDB = txtc.split("\n");
+                //  var courses = new Set();
+                for (let index = 0; index < coursesDB.length; index++) {
+                    courses.push(coursesDB[index].split("\t"));
+                }
+                cm = DB.addcourses(courses);
+                for (var [key, value] of cm) {
+                   console.log(key + ' => ' + value);
+                 }
+
+            }
+            function studentsdata(txts) {
+                var studentDB = txts.split("\n");
+
+                // var student = new Set();
+                for (let index = 0; index < studentDB.length; index++) {
+                    student.push(studentDB[index].split("\t"));
+                }
+                sm = DB.addstudent(student);
+
+            }
+            function txtclear() {
+                Randomout.innerText = " ";
+                Numberofstuout.innerText = " ";
+                CoursesGivenStuout.innerText = " ";
+                bestGPAout.innerText=" ";
+                Corlistout.innerText=" ";
+            }
+            function randomStd() {
+                let hashtable = [];
+                let hashkey = [];
+                let index = 0;
+                let id = 0;
+
+                for (var key of sm) {
+                    hashtable.push(key);
+                }
+                for (let key = 0; key < hashtable.length; key++) {
+                    hashkey.push((hashtable[key][0]) * 3);
+                }
+                index = Math.floor((Math.random() * (hashkey.length - 1)) + 1);
+                id = (hashkey[index] / 3);
+                for (let i = 0; i < hashtable.length; i++) {
+                    if (hashtable[i][0] == id) {
+                        Randomout.innerHTML += hashtable[i][0] + " :=> " + hashtable[i][1] + "<br>";
+                        break;
+                    }
+                }
+                index = 0;
+            }
+        </script>
+       
+        
+        <button onClick='txtclear()'>Clear</button>
+         <button onClick='Best()'>Best GPA</button>
+        <button onClick='randomStd()'>Random</button>
+        <script>
+            title.innerText = document.title;
+            readDatastu("Students.txt")
+            readDatacor("Courses.txt")
+        </script>
+        <hr/>
+        <p>
+        <h3>Random Students </h3>
+        <h3>name  &emsp;&emsp;&emsp;&emsp;&emsp;GPA  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Coruses </h3>
+        <p id=Randomout></p>
+</p><hr/>
+<p>
+<h3>Number of students above a given GPA </h3>
+<p id=Numberofstuout></p>
+</p><hr/>
+<p>
+<h3>Courses taken by a given student </h3>
+<p id=CoursesGivenStuout></p>
+</p><p>
+<hr/>
+<h3>Exam schedule for a given student </h3>
+        <h3>Time  &emsp;&emsp;&emsp;&emsp;&emsp;Data  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Rooms </h3>
+
+<p id=Examscheduleout></p>
+<hr/>
+
+
+
+</p>
+
+<p>
+<hr/>
+<h3> Best GPA </h3>
+<p id=bestGPAout></p>
+
+</p>
+
+
+<p>
+<hr/>
+<h3>Student list taking a given course </h3>
+<p id=Stulistout></p>
+</p>
+<p>
+<hr/>
+<h3>Course list for a given exam room</h3>
+        <h3>&emsp;&emsp;&emsp;&emsp;&emsp;Coruses </h3>
+
+<p id=Corlistout></p>
+</p>
+<p>
+<hr/>
+<h3>Total number of courses in a given room</h3>
+<p id=TotalNUout></p> 
+</p>
+<p>
+</table>
+
+</body></html>
