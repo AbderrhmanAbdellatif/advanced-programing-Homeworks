@@ -11,6 +11,7 @@
     "use strict";
 	 var outputfile;
 	 var inputfile=[];
+	 
 	 var counter =0;
 var temp="";
     function fileSelect(evt) {
@@ -20,7 +21,7 @@ var temp="";
             let reader = new FileReader();
 
             reader.onload = function () {
-                inputfile.push(reader.result);
+                inputfile.push({text:reader.result,name:file.name});
 				counter++;
             }
             reader.readAsText(file, "UTF-8");
@@ -32,19 +33,22 @@ var temp="";
             .then(r => r.text()).then(showtxt)
             
     }
+	var tempcompare="";
     function compare(txt) {
 	   for(let i=0;i<counter;i++){
-	    if(inputfile[i]==outputfile){
+	    if(inputfile[i].text==outputfile){
 		  console.log("true")
-		}if(inputfile[i]!=outputfile){
-		console.log("felse");
+		  tempcompare+=inputfile[i].name+" this file is equal"+"\n";
+		}else{
+      		  tempcompare+=inputfile[i].name+" this file is not equal"+"\n";		   
 		}
 	   }
+	   outofarr.innerText=tempcompare;
     }
 	function showtxt(txt){
 	  var outtxt=txt;
 	  outputfile=txt;
-	 strtxt.innerText=outtxt;
+	 strtxt.innerText='dosya okudun ';
 	}
 
 </script>
@@ -59,9 +63,13 @@ var temp="";
     <input type=button value="Compare" onClick="compare()">
 
     <pre id=out></pre>
-        <pre id=strtxt></pre>
-    <hr />
-    <b>Sample code</b>
+
+	<pre id=strtxt></pre>
+
+		<hr />
+    <pre id=outofarr></pre>
+
+		<b>Sample code</b>
     <pre id=sample></pre>
     <hr />
 
