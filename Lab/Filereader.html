@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fetch Remote File </title>
+</head>
+
+<script>
+    "use strict";
+	 var outputfile;
+	 var inputfile=[];
+	 var counter =0;
+var temp="";
+    function fileSelect(evt) {
+        var files = evt.files; // FileList object
+        
+        for (let file of files) {
+            let reader = new FileReader();
+
+            reader.onload = function () {
+                inputfile.push(reader.result);
+				counter++;
+            }
+            reader.readAsText(file, "UTF-8");
+           
+        }
+    }
+    function readText() {
+        fetch(url.value)
+            .then(r => r.text()).then(showtxt)
+            
+    }
+    function compare(txt) {
+	   for(let i=0;i<counter;i++){
+	    if(inputfile[i]==outputfile){
+		  console.log("true")
+		}if(inputfile[i]!=outputfile){
+		console.log("felse");
+		}
+	   }
+    }
+	function showtxt(txt){
+	  var outtxt=txt;
+	  outputfile=txt;
+	 strtxt.innerText=outtxt;
+	}
+
+</script>
+
+<body>
+
+    <h2 id=title></h2>
+
+    <input type=text id=url value="">
+	<input type=button value="Show txt" onClick="readText()">
+    <input type=file id=button onChange='fileSelect(this)' multiple />
+    <input type=button value="Compare" onClick="compare()">
+
+    <pre id=out></pre>
+        <pre id=strtxt></pre>
+    <hr />
+    <b>Sample code</b>
+    <pre id=sample></pre>
+    <hr />
+
+    <script>
+        title.innerText = document.title;
+
+    </script>
+
+</body>
+
+</html>
