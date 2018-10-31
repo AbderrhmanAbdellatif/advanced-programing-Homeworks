@@ -31,12 +31,18 @@ var temp="";
 	var fetchtxt="";
     function readText() {
 	    fetchtxt=url.value;
+		if(fetchtxt.endsWith(".txt") || fetchtxt.endsWith(".java") || fetchtxt.endsWith(".md") || fetchtxt.endsWith(".js")){
         fetch(url.value)
             .then(r => r.text()).then(showtxt)
-        
+        }else{alert("wrong input");
+		};
     }
 	var tempcompare="";
     function compare(txt) {
+	if(url.value==''){
+	  Compare.disabled=true;
+	}else{
+	 Compare.disabled=false;
 	   for(let i=0;i<counter;i++){
 	    if(inputfile[i].text==outputfile){
 		  console.log("true")
@@ -47,6 +53,7 @@ var temp="";
 	   }
 	   outofarr.innerText=tempcompare;
     }
+	}
 	function showtxt(txt){
 	  var outtxt=txt;
 	  outputfile=txt;
