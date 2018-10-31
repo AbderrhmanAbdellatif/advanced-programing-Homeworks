@@ -28,10 +28,12 @@ var temp="";
            
         }
     }
+	var fetchtxt="";
     function readText() {
+	    fetchtxt=url.value;
         fetch(url.value)
             .then(r => r.text()).then(showtxt)
-            
+        
     }
 	var tempcompare="";
     function compare(txt) {
@@ -48,17 +50,30 @@ var temp="";
 	function showtxt(txt){
 	  var outtxt=txt;
 	  outputfile=txt;
-	 strtxt.innerText='dosya okudun ';
+	  URL.innerText=fetchtxt;
+	 strtxt.innerText='file has been readede ';
 	}
 
+	
 </script>
+<body> <h2 id=title></h2> </body>
+<fieldset>
+    <legend>Update URL</legend>
 
+    <div class="control">
+        <label for="url">Enter an https:// URL:</label>
+        <input type="url" id=url value=""
+               placeholder="https://example.com"
+               pattern="https://.txt" size="20" required />
+   </div>
+
+</fieldset>
 <body>
 
-    <h2 id=title></h2>
+    
 
-    <input type=text id=url value="">
-	<input type=button value="Show txt" onClick="readText()">
+    
+	<input type=button value="Read File" onClick="readText()">
     <input type=file id=button onChange='fileSelect(this)' multiple />
     <input type=button value="Compare" onClick="compare()">
 
@@ -68,10 +83,12 @@ var temp="";
 
 		<hr />
     <pre id=outofarr></pre>
-
-		<b>Sample code</b>
-    <pre id=sample></pre>
+    <pre id=URL></pre>
     <hr />
+	<b> Links : </b>
+	<b> https://maeyler.github.io/JS/data/Students.txt </b>
+
+	
 
     <script>
         title.innerText = document.title;
