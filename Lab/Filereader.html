@@ -32,17 +32,16 @@ var temp="";
     function readText() {
 	    fetchtxt=url.value;
 		if(fetchtxt.endsWith(".txt") || fetchtxt.endsWith(".java") || fetchtxt.endsWith(".md") || fetchtxt.endsWith(".js")){
+		 // com.disabled=true;
         fetch(url.value)
             .then(r => r.text()).then(showtxt)
-        }else{alert("wrong input");
+        }else{
+		//	 com.disabled=false;
+            alert("wrong input");
 		};
     }
 	var tempcompare="";
     function compare(txt) {
-	if(url.value==''){
-	  Compare.disabled=true;
-	}else{
-	 Compare.disabled=false;
 	   for(let i=0;i<counter;i++){
 	    if(inputfile[i].text==outputfile){
 		  console.log("true")
@@ -52,7 +51,7 @@ var temp="";
 		}
 	   }
 	   outofarr.innerText=tempcompare;
-    }
+    
 	}
 	function showtxt(txt){
 	  var outtxt=txt;
@@ -82,7 +81,7 @@ var temp="";
     
 	<input type=button value="Read File" onClick="readText()">
     <input type=file id=button onChange='fileSelect(this)' multiple />
-    <input type=button value="Compare" onClick="compare()">
+    <input type=button id=com value="Compare"  onClick="compare()" >
 
     <pre id=out></pre>
 
