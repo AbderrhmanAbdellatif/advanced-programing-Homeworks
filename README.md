@@ -15,7 +15,7 @@ This course teaches practical, modern software development practices in the JS p
 | `inspector` ||[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/inspector.html) :+1: |
 | `range` ||[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png) :+1: |
 |`Class`|24/10/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/BLM305-master/work/index.html) :+1: |
-
+|`File Reader`||31/10/2018||[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Filereader.html):+1: |
 
 
 
