@@ -21,7 +21,7 @@ var temp="";
             let reader = new FileReader();
 
             reader.onload = function () {
-                inputfile.push({text:reader.result,name:file.name});
+                inputfile.push({text:reader.result,name:file.name,type:file.type,data:file.lastModifiedDate});
 				counter++;
             }
             reader.readAsText(file, "UTF-8");
@@ -45,9 +45,9 @@ var temp="";
 	   for(let i=0;i<counter;i++){
 	    if(inputfile[i].text==outputfile){
 		  console.log("true")
-		  tempcompare+=inputfile[i].name+" this file is equal"+"\n";
+		  tempcompare+="("+inputfile[i].name+") this file is equal  ==> "+"Type is : ["+inputfile[i].type+"]"+"Data is ==>["+inputfile[i].data+"]"+"\n";
 		}else{
-      		  tempcompare+=inputfile[i].name+" this file is not equal"+"\n";		   
+      		  tempcompare+="("+inputfile[i].name+" ) this file is not equal ==>"+"Type is : ["+inputfile[i].type+"]"+"==>["+inputfile[i].data+"]"+"\n";		   
 		}
 	   }
 	   outofarr.innerText=tempcompare;
@@ -88,6 +88,7 @@ var temp="";
 	<pre id=strtxt></pre>
 
 		<hr />
+    <b>Name                     Type                              Data</b>
     <pre id=outofarr></pre>
     <pre id=URL></pre>
     <hr />
