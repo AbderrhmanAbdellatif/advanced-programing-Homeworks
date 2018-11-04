@@ -16,16 +16,12 @@
 var temp="";
     function fileSelect(evt) {
         var files = evt.files; // FileList object
-        
         for (let file of files) {
             let reader = new FileReader();
-
             reader.onload = function () {
                 inputfile.push({text:reader.result,name:file.name,type:file.type,data:file.lastModifiedDate});
-				counter++;
             }
             reader.readAsText(file, "UTF-8");
-           
         }
     }
 	var fetchtxt="";
@@ -42,7 +38,7 @@ var temp="";
     }
 	var tempcompare="";
     function compare(txt) {
-	   for(let i=0;i<counter;i++){
+	   for(let i=0;i<inputfile.length;i++){
 	    if(inputfile[i].text==outputfile){
 		  console.log("true")
 		  tempcompare+="("+inputfile[i].name+") this file is equal  ==> "+"Type is : ["+inputfile[i].type+"]"+"Data is ==>["+inputfile[i].data+"]"+"\n";
