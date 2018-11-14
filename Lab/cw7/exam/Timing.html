@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Map vs Array</title>
+
+<script>
+class Student
+{
+    constructor (id, name, gpa, courses)
+    {
+        this.id = id;
+        this.name = name;
+        this.gpa = gpa;
+        this.courses = courses;
+        
+    }
+    toString ()
+    {
+        return this.id+'';
+    }
+    
+}
+class Database
+{
+    constructor ()
+      {
+        this.studentsMap = new Map()
+        this.studentsArray= []
+        this.readSData()
+      }
+           
+     readSData ()
+     {
+        var url = "https://maeyler.github.io/JS/data/Students.txt"
+        fetch(url)
+        .then(res => res.text())
+        .then(res => [this.addStudents(res)]) 
+     }
+     
+    addStudents(txt)
+     {
+      let a = txt.split("\n");
+	 
+	  for (let line of a)
+       {
+          let b = line.split("\t");
+          let id = b[0], name = b[1], gpa = b[2];
+          let list = [];
+          for (let i=3; i<b.length; i++){list.push(b[i]);}
+          
+     	  const std = new Student(id, name, gpa, list);
+    	  this.studentsMap.set(std.id, std);
+    	  this.studentsArray.push(std.id);
+		}
+            
+	}
+}
+let s = new Database()
+let arrCount=0
+let mapCount=0
+function timing() {
+    let timeArray = 0
+    let timeMap = 0
+    let r= 0;
+    
+    for(let i=0; i<10000; i++)
+    {
+	    id="116690" + String(Math.random()).substring(2, 5);
+	    
+	    let arrayTime = performance.now();
+	    if(s.studentsArray.includes(id))
+			arrCount+=1
+		 timeArray += performance.now() - arrayTime
+        let mapTime = performance.now();
+		if(s.studentsMap.has(id))
+			mapCount+=1
+		
+		timeMap+= performance.now() - mapTime
+    }
+    
+    console.log(r)
+	let kimlik=id;
+    let a= "Array: "+timeArray.toPrecision(3)+" msec" + "\nFounds: " + arrCount
+    let m= "Map: "  +timeMap.toPrecision(3)+" msec" + "\nFounds: " + mapCount
+    out.innerText += "\n"+kimlik +"\n"+a + "\n\n" + m + "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    arrCount=0
+    mapCount=0
+    
+       
+}
+ function clr()
+    {
+	   out.innerText=""
+    }
+    
+    
+</script>
+</head>
+
+<body>
+<h2 id=title></h2>
+<button id=mAr onclick="timing()">compare Map and Array</button>
+<button id=cl  onclick="clr()">clear</button>
+
+<p id=out></p>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<script>
+    title.innerText = document.title;
+    sample.innerText = timing;
+</script>
+
+
+</body>
+</html>
