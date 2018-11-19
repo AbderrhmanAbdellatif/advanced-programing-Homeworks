@@ -24,7 +24,7 @@ This course teaches practical, modern software development practices in the JS p
 | --- | --- | --- |
 | `1` | Add button,Print button,Avg button, Max button  |  [link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/Add%20course.html)|
 |`2`|Students Database |[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/HomeWorks/Databesa.html)|
-            
+|`3`|animation|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/HW3/index.html)|            
 
 
 
