@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="manifest" href="manifest.json">
     <title>بسم الله  الرحمن الرحيم  </title>
+
 </head>
 <div id="mountains"></div>
-<link rel="manifest" href="manifest.json">
 <script>
 "use strict";
 
@@ -22,7 +23,7 @@
 
   ];
   var col = ["Name","ogrenciNo","BOLUM"];
-  var ra  =FSMVU.length;
+  var ra  = FSMVU.length;
 
 
 //for (let key of iterator) size++;
@@ -54,8 +55,6 @@ function tableFromMenu() {
     cols.value = col.length;
 }
 function tableFromInput() {
-    const m = rows.value;
-    const n = cols.value;
     makeRows(ra, col.length);
     size.value = "degistir";
 }
@@ -65,7 +64,7 @@ function tableFromInput() {
     table { border-collapse: collapse; }
     th { color: redx; padding: 5px 5px; }
     td {
-        border: 1px solid red;
+        border: 10px solid red;
         padding: 5px 5px;
         text-align: center;
     }
@@ -90,12 +89,7 @@ function tableFromInput() {
 <p id=out style="font-size:small"></p>
 
 <form oninput="tableFromInput()">
-  Rows:
-  <input type=number id=rows style="width:40px" value=7>
-  Columns:
-  <input type=number id=cols style="width:40px" value=8>
-  <br><br>
-  <input type=reset>
+
   <input type=button value="degistir" onclick="tableFromInput()">
 </form>
 </center>
