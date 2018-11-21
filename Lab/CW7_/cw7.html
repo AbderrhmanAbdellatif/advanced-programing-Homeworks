@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link rel="manifest" href="manifest.json">
-    <title>بسم الله  الرحمن الرحيم  </title>
+    <title>ogrenci sistemi  </title>
 
 </head>
 <div id="mountains"></div>
@@ -32,7 +32,7 @@ const arabic_alpha = ['ا', 'ب', 'پ', 'ت', 'ث', 'ج', 'چ', 'ح', 'خ', 'د'
 function makeRows(m, n) {
     let row = "<th>       </th>";
     for (let j = 0; j < col.length; j++)
-        row += "<th>"+col[j]+"</th>";
+        row ="<th>"+col[j]+"</th>"+row;
     let text = "<tr>"+row+"</tr>";
     for (let i = 1; i <= ra; i++) {
        row = "<th>"+arabic_alpha[i]+"</th>";
@@ -40,7 +40,7 @@ function makeRows(m, n) {
           const p =arabic_alpha[j];
           const s = "<span class=tip>"+arabic_alpha[j]+"</span>"
           var item = FSMVU[Math.floor(Math.random()*FSMVU.length)];
-          row = "      "+"<td>"+item.name+"</td>"+"<td>"+item.ogrenciNo+"</td>"+"<td>"+item.bolum+"</td>";
+          row = "<td>"+item.name+"</td>"+"<td>"+item.ogrenciNo+"</td>"+"<td>"+item.bolum+"</td>";
        }
        text += "<tr>"+row+"</tr>";
     }
