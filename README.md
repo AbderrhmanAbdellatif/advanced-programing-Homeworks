@@ -17,7 +17,7 @@ This course teaches practical, modern software development practices in the JS p
 |`Class`|24/10/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/BLM305-master/work/index.html) :+1: |
 |`File Reader`|31/10/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Filereader.html):+1: |
 |`Timing`|14/11/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/cw7/exam/Timing.html):+1: |
-|`PWD`|21/11/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/CW7_/cw7.html) :+1: |
+|`Table`|21/11/2018|[link](https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/CW7_/cw7.html) :+1: |
 
 
 | Assessment tasks| Description |links |
