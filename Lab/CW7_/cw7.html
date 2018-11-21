@@ -48,28 +48,14 @@ function makeRows(m, n) {
         padding: 5px 5px;
         text-align: center;
     }
-    td:hover .tip { visibility: visible; }
-    .tip {
-        visibility: hidden;
-        font-size: small;
-        background-color: red;
-        color: black;
-        text-align: center;
-        padding: 5px 5px;
-        position: absolute;
-    }
 </style>
 
 <body>
 <center>
 <h2 id=title></h2>
-
 <table id="tablo"></table>
-
 <p id=out style="font-size:small"></p>
-
 <form oninput="tableFromInput()">
-
   <input type=button value="degistir" onclick="tableFromInput()">
 </form>
 </center>
