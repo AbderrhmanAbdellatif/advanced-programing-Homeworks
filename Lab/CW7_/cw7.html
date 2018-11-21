@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link rel="manifest" href="manifest.json">
-    <title>ogrenci sistemi  </title>
-
+    <title>  Student system  </title>
 </head>
-<div id="mountains"></div>
 <script>
 "use strict";
   const FSMVU = [
@@ -17,8 +15,9 @@
     {name: "abdellah", ogrenciNo: 58895, bolum: "islam"},
     {name: "yunus", ogrenciNo: 589575, bolum: "bilgisayar"},
     {name: "islem", ogrenciNo: 589975, bolum: "Hukuk"},
+    {name: "rava", ogrenciNo: 89975, bolum: "HUKUK"},
   ];
-  var col = ["BOLUM","ogrenciNo","NAME"];
+  var col = ["BOLUM","Student NO ","NAME"];
   var ra  = FSMVU.length;
 
 function makeRows(m, n) {
@@ -33,11 +32,14 @@ function makeRows(m, n) {
        }
        text += "<tr>"+row+"</tr>";
     }
-    const t = text.length+" chars";
-    console.log("makeRows: "+ra+"x"+col.length+" "+t);
-    tablo.innerHTML = text; out.innerText = t;
+    tablo.innerHTML = text;
+  }
+function tableFromMenu() {
+    makeRows(ra, col.length);
 }
-
+function tableFromInput() {
+    makeRows(ra, col.length);
+}
 </script>
 
 <style>
@@ -48,15 +50,20 @@ function makeRows(m, n) {
         padding: 5px 5px;
         text-align: center;
     }
+
 </style>
 
 <body>
 <center>
 <h2 id=title></h2>
+
 <table id="tablo"></table>
+
 <p id=out style="font-size:small"></p>
+
 <form oninput="tableFromInput()">
-  <input type=button value="degistir" onclick="tableFromInput()">
+
+  <input type=button value="change place" onclick="tableFromInput()">
 </form>
 </center>
 >
@@ -64,17 +71,14 @@ function makeRows(m, n) {
 Ref:
 <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/HW3/index.html" target="ExternalDocument">HW3/Animatio</a>
 <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/CW7_/cw7.html" target="ExternalDocument">HW3/Animatio</a>
-
 <hr />
 <b>Sample code</b>
 <pre id=sample></pre>
 <hr />
-
 <script>
     title.innerText = document.title;
     sample.innerText = makeRows.toString();
     makeRows(3, 5);
 </script>
-
 </body>
 </html>
