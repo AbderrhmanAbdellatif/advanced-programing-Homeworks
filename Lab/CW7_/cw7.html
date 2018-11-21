@@ -37,16 +37,7 @@ function makeRows(m, n) {
     console.log("makeRows: "+ra+"x"+col.length+" "+t);
     tablo.innerHTML = text; out.innerText = t;
 }
-function tableFromMenu() {
-    const a = size.value.split("x");
-    makeRows(ra, col.length);
-    rows.value = ra;
-    cols.value = col.length;
-}
-function tableFromInput() {
-    makeRows(ra, col.length);
-    size.value = "degistir";
-}
+
 </script>
 
 <style>
