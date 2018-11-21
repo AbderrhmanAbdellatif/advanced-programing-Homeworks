@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>بسم الله  الرحمن الرحيم  </title>
+</head>
+<div id="mountains"></div>
+
+<script>
+"use strict";
+
+
+
+  const FSMVU = [
+    {name: "abderrhman", ogrenciNo: 5895, bolum: "mimarlık"},
+    {name: "yusuf", ogrenciNo: 58956, bolum: "bilgisayar"},
+    {name: "abdellah", ogrenciNo: 58895, bolum: "islam"},
+    {name: "yunus", ogrenciNo: 589575, bolum: "bilgisayar"},
+    {name: "islem", ogrenciNo: 589975, bolum: "Hukuk"},
+
+  ];
+  var col = ["Name","ogrenciNo","BOLUM"];
+  var ra  =FSMVU.length;
+
+
+//for (let key of iterator) size++;
+const arabic_alpha = ['ا', 'ب', 'پ', 'ت', 'ث', 'ج', 'چ', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'ژ', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک', 'گ', 'ل', 'م', 'ن', 'و', 'ه', 'ی'];
+
+function makeRows(m, n) {
+    let row = "<th>       </th>";
+    for (let j = 0; j < col.length; j++)
+        row += "<th>"+col[j]+"</th>";
+    let text = "<tr>"+row+"</tr>";
+    for (let i = 1; i <= ra; i++) {
+       row = "<th>"+arabic_alpha[i]+"</th>";
+       for (let j = 1; j <= col.length; j++) {
+          const p =arabic_alpha[j];
+          const s = "<span class=tip>"+arabic_alpha[j]+"</span>"
+          var item = FSMVU[Math.floor(Math.random()*FSMVU.length)];
+          row = "      "+"<td>"+item.name+"</td>"+"<td>"+item.ogrenciNo+"</td>"+"<td>"+item.bolum+"</td>";
+       }
+       text += "<tr>"+row+"</tr>";
+    }
+    const t = text.length+" chars";
+    console.log("makeRows: "+ra+"x"+col.length+" "+t);
+    tablo.innerHTML = text; out.innerText = t;
+}
+function tableFromMenu() {
+    const a = size.value.split("x");
+    makeRows(ra, col.length);
+    rows.value = ra;
+    cols.value = col.length;
+}
+function tableFromInput() {
+    const m = rows.value;
+    const n = cols.value;
+    makeRows(ra, col.length);
+    size.value = "degistir";
+}
+</script>
+
+<style>
+    table { border-collapse: collapse; }
+    th { color: redx; padding: 5px 5px; }
+    td {
+        border: 1px solid red;
+        padding: 5px 5px;
+        text-align: center;
+    }
+    td:hover .tip { visibility: visible; }
+    .tip {
+        visibility: hidden;
+        font-size: small;
+        background-color: red;
+        color: black;
+        text-align: center;
+        padding: 5px 5px;
+        position: absolute;
+    }
+</style>
+
+<body>
+<center>
+<h2 id=title></h2>
+
+<table id="tablo"></table>
+
+<p id=out style="font-size:small"></p>
+
+<form oninput="tableFromInput()">
+  Rows:
+  <input type=number id=rows style="width:40px" value=7>
+  Columns:
+  <input type=number id=cols style="width:40px" value=8>
+  <br><br>
+  <input type=reset>
+  <input type=button value="degistir" onclick="tableFromInput()">
+</form>
+</center>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+    title.innerText = document.title;
+    sample.innerText = makeRows.toString();
+    makeRows(3, 5);
+</script>
+
+</body>
+</html>
