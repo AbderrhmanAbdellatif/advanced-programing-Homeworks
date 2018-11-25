@@ -1,4 +1,6 @@
-theme: jekyll-theme-hacker
+theme: jekyll-theme-dinky
+
+gem "github-pages", group: :jekyll_plugins
 
 plugins:
   - jemoji
