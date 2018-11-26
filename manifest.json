@@ -5,7 +5,7 @@
   "short_name": "AdvPro",
   "theme_color": "#008eff",
   "background_color": "#008eff",
-  "display": "browser",
+   "display": "standalone",
   "description": "Advanced Programming work files",
   "Scope": "/",
   "start_url": "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/",
