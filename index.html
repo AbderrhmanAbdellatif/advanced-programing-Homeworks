@@ -4,7 +4,7 @@
 <head>
 
 
-  <title>BLM305 HomePage</title>
+  <title>BLM305</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,7 +14,6 @@
   <link rel="manifest" href="manifest.json">
 
   <script>
-    // https://stackoverflow.com/questions/38168276/navigator-serviceworker-controller-is-null-until-page-refresh
     self.addEventListener('install', function (event) {
       event.waitUntil(self.skipWaiting()); // Activate worker immediately
     });
@@ -39,29 +38,33 @@
       font-family: "Raleway", sans-serif
     }
       
-     body {
-     background-color: #93B874;
-   }
-   h1 {
-      background-color: #00b33c;
+body  {
+    background-image: url("https://pbs.twimg.com/media/DpgvdgZWwAEMGWw.jpg");
+   
+}
+.card{
+
+    min-height: 300px;
+    
     }
-    p {
-       background-color: #FFFFFF);
-    }
-  </style>
+      
+      
+   </style>
     
 </head>
 
 
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
+    
   <!-- Sidebar/menu -->
   <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container">
       <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
         <i class="fa fa-remove"></i>
       </a>
-      <img src="https://static1.squarespace.com/static/58d20c79725e25b221549193/t/5aaa1e10652deaa430665e31/1521098260276/js.jpg?format=1500w" style="width:100%;" class="w3-round"><br><br>
+      <img src="https://static1.squarespace.com/static/58d20c79725e25b221549193/t/5aaa1e10652deaa430665e31/1521098260276/js.jpg?format=1500w" 
+           style="width:100%;" class="w3-round"><br><br>
       <h4><b>Abdurrahman Abdellatif </b></h4>
     </div>
 
@@ -97,67 +100,71 @@
       
       <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
       <div class="w3-container">
-        <h1><font color="blue"> Class Works </font></h1>
+        <h1><font color="blue"><strong>  Class Works </strong></font></h1>
       </div>
       
       
     <!-- First Grid-->
     <div class="w3-row-padding">
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
+          
+        <div class="w3-container w3-teal">
+           
           <p><b>CW0 - Introduction</b></p>
-          <p>Introduction to HTML and JS, solved the
+          <p class='card'>Introduction to HTML and JS, solved the
             <a href="http://eloquentjavascript.net/02_program_structure.html#p_1pkxSCSkVg">Chessboard</a>
             exercise at the end Chap 2 of <a href="http://eloquentjavascript.net/">eloquent javascript book</a></p>
           <div>
-
-            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/1gn41Vtkj6Y" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+               
+            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/1gn41Vtkj6Y" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
           </div>
         </div>
       </div>
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW1 - making a web page</b></p>
           <p>Making a web page using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
             methods.</p>
           <div>
-            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/IvKDmXMwrM8" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/IvKDmXMwrM8" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/CW1.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Array%20Demo%20.html " class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
             <br>
             <br>
           </div>
         </div>
       </div>
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW2 - Objects and Arrays</b></p>
           <p>solved the
             <a href="http://eloquentjavascript.net/04_data.html#h_TcUD2vzyMe">The sum of a range</a>
             exercise at the end Chap 4 of <a href="http://eloquentjavascript.net/">eloquent javascript book</a>
             Modified analyze() method so that it counts the number days for each event type.</p>
           <div>
-            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/hwM_bADloQU" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/hwM_bADloQU" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="CW2/roadMap.md" class="w3-btn w3-white w3-border w3-border-grey w3-round">work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/inspector.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">work</a>
+              <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png" class="w3-btn w3-green w3-border w3-border-grey w3-round">range</a>
+              
             <br>
             <br>
           </div>
         </div>
       </div>
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
-          <p><b>CW3 - Inspector</b></p>
+        <div class="w3-container w3-teal">
+          <p ><b>CW3 - Inspector</b></p>
           <p>tickling The <a href="https://maeyler.github.io/JS/sss/">Inspector </a>.</p>
           <div>
-            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/-5ONDWb77fY" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/forum/#!topic/fsmvu-mae/-5ONDWb77fY" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/index.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/BLM305-master/work/index.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
             <br>
             <br>
           </div>
@@ -170,47 +177,47 @@
     <!-- Second Grid-->
     <div class="w3-row-padding">
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW4 - File </b></p>
           <p>You will open a remote file and some local files together and comparing them.</p>
           <div>
-            <a href="https://groups.google.com/forum/#!msg/fsmvu-mae/YbEWQyVvejk/uQsmi5WuCAAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/forum/#!msg/fsmvu-mae/YbEWQyVvejk/uQsmi5WuCAAJ" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/CW5.HTML" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/Filereader.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
           </div>
           <br>
 
         </div>
       </div>
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW5 - Timing</b></p>
           <p>Comparing map and array using Time measurement methods.</p>
           <div>
-            <a href="https://groups.google.com/forum/#!msg/fsmvu-mae/qx3MEdIdMtI/gp9TLgNOBQAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/forum/#!msg/fsmvu-mae/qx3MEdIdMtI/gp9TLgNOBQAJ" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/cw6.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/cw7/exam/Timing.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
           </div>
           <br>
         </div>
       </div>
       <div class="w3-quarter w3-container">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW7 - DOM and PWA</b></p>
           <p>Making PWA and Some tables using DOM.</p>
           <div>
-            <a href="https://groups.google.com/forum/#!msg/fsmvu-mae/FS_53-wdnc0/quWV2wFHAQAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/forum/#!msg/fsmvu-mae/FS_53-wdnc0/quWV2wFHAQAJ" class="w3-btn w3-red w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="CW7/roadMap.md" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/CW7_/cw7.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
           </div>
           <br>
         </div>
       </div>
       <div class="w3-quarter w3-container w3-hide	">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW7</b></p>
           <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue
             gravida diam non fringilla.</p>
@@ -228,7 +235,7 @@
     <!-- third Grid-->
     <div class="w3-row-padding">
       <div class="w3-third w3-container w3-hide	">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW8</b></p>
           <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue
             gravida diam non fringilla.</p>
@@ -243,7 +250,7 @@
         </div>
       </div>
       <div class="w3-third w3-container w3-hide	">
-        <div class="w3-container w3-white">
+        <div class="w3-container w3-teal">
           <p><b>CW9</b></p>
           <p>coming soon.</p>
           <div>
@@ -256,15 +263,23 @@
           </div>
         </div>
       </div>
-      <div class="w3-third w3-container">
+      
+      
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+      <div class="w3-container">
+        <h1><font color="blue"><strong>  HomeWorks </strong></font></h1>
+      </div>
+      
+        
+        <div class="w3-third w3-container">
         <div class="w3-container w3-white">
           <p><b>HW0 - Course Data </b></p>
           <p>Using user inputs to add student , get average of them and show their grades by using arrays.</p>
           <div>
-            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/Bpd_v0ULAQAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/Bpd_v0ULAQAJ" class="w3-btn w3-black w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/HW1.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/Add%20course.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
             <br>
             <br>
           </div>
@@ -276,11 +291,6 @@
 
       
       
-      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-      <div class="w3-container">
-        <h1><font color="black"> HomeWorks </font></h1>
-      </div>
-      
       
       
     <!-- forth Grid-->
@@ -290,10 +300,10 @@
           <p><b>HW1 - Student Database</b></p>
           <p>Read file remotle, working on classes and maps.</p>
           <div>
-            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/EwhcpcJ9BgAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/EwhcpcJ9BgAJ" class="w3-btn w3-black w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/HW2/Database.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/HomeWorks/Databesa.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">work</a>
             <br>
             <br>
           </div>
@@ -304,10 +314,10 @@
           <p><b>HW2 - Animation </b></p>
           <p>Using Java Script to make animation.</p>
           <div>
-            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/LCuvfxd6AAAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/LCuvfxd6AAAJ" class="w3-btn w3-black w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
-            <a href="JSuniWork/HW3/animation.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">Work</a>
+            <a href="https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Homeworks/HW3/index.html" class="w3-btn w3-black w3-border w3-border-grey w3-round">Work</a>
             <br>
             <br>
           </div>
@@ -318,7 +328,7 @@
           <p><b>HW3 - My Home Page </b></p>
           <p>Making Home Page as PWA and desgining it.</p>
           <div>
-            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/ohONnfLoAgAJ" class="w3-btn w3-white w3-border w3-border-grey w3-round">Question</a>
+            <a href="https://groups.google.com/d/msg/fsmvu-mae/9zz_tXebdb0/ohONnfLoAgAJ" class="w3-btn w3-black w3-border w3-border-grey w3-round">Question</a>
             <br>
             <br>
 
@@ -340,6 +350,10 @@
           <a href="https://codepen.io/" class="w3-btn w3-white w3-border w3-border-grey w3-round">Code pen Platform</a>
           <a href="https://www.fsf.org/" class="w3-btn w3-white w3-border w3-border-blue w3-round">Free software
             foundation. </a>
+               
+           <a href=" https://stackoverflow.com/questions/38168276/navigator-serviceworker-controller-is-null-until-page-refresh" class="w3-btn w3-white w3-border w3-border-grey w3-round">
+            stackoverflow.</a>
+
           <a href="https://www.gnu.org/philosophy/shouldbefree.en.html" class="w3-btn w3-white w3-border w3-border-grey w3-round">free
             software philosophy.</a>
 
