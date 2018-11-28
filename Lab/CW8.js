@@ -6,7 +6,11 @@ Promise {<pending>}
 c.keys().then(x => {a=x})
 
 Promise {<pending>}
-a
+
+a //array
+
+
+//sonuc
 (12) [Request, Request, Request, Request, Request, Request, Request, Request, Request, Request, Request, Request]0: Request {method: "GET", url: "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png", headers: Headers, destination: "", referrer: "", …}1: Request {method: "GET", url: "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/", headers: Headers, destination: "", referrer: "", …}2: Request {method: "GET", url: "https://static1.squarespace.com/static/58d20c79725…52deaa430665e31/1521098260276/js.jpg?format=1500w", headers: Headers, destination: "", referrer: "", …}3: Request {method: "GET", url: "https://pbs.twimg.com/media/DpgvdgZWwAEMGWw.jpg", headers: Headers, destination: "", referrer: "", …}4: Request {method: "GET", url: "https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0ITw.woff2", headers: Headers, destination: "", referrer: "", …}5: Request {method: "GET", url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0", headers: Headers, destination: "", referrer: "", …}6: Request {method: "GET", url: "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/manifest.json", headers: Headers, destination: "", referrer: "", …}7: Request {method: "GET", url: "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/images/icons/icon-144x144.png", headers: Headers, destination: "", referrer: "", …}8: Request {method: "GET", url: "https://www.w3schools.com/w3css/4/w3.css", headers: Headers, destination: "", referrer: "", …}9: Request {method: "GET", url: "https://fonts.googleapis.com/css?family=Raleway", headers: Headers, destination: "", referrer: "", …}10: Request {method: "GET", url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", headers: Headers, destination: "", referrer: "", …}11: Request {method: "GET", url: "https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2", headers: Headers, destination: "", referrer: "", …}length: 12__proto__: Array(0)
 console.table(a.keys())
 
@@ -17,9 +21,10 @@ console.table(a.keys())
          
          
  var myurls = []
-undefined
-for(let i of a)myurls.push(i.url)
-12
+
+ for(let i of a)myurls.push(i.url)
+
+ //sounc
 myurls
 (12) ["https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/Lab/work/range.png", "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/", "https://static1.squarespace.com/static/58d20c79725…52deaa430665e31/1521098260276/js.jpg?format=1500w", "https://pbs.twimg.com/media/DpgvdgZWwAEMGWw.jpg", "https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0ITw.woff2", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0", "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/manifest.json", "https://abderrhmanabdellatif.github.io/advanced-programing-Homeworks/images/icons/icon-144x144.png", "https://www.w3schools.com/w3css/4/w3.css", "https://fonts.googleapis.com/css?family=Raleway", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", "https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2"]
          
