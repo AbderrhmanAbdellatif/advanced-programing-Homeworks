@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Canvas </title>
+
+  <style>
+    svg {
+        background: cyan;
+
+    }
+  </style>
+</head>
+<br>
+
+<b>select circle or rectangle</b>
+<br>
+<select id =select>
+  <option value="circle">Circle</option>
+  <option value="rectangle">Rectangle</option>
+</select>
+<button onclick="changeSize()">change Size</button>
+<button onclick="changePlace()">change Place</button>
+<button onclick="changeStrok()">change Strok</button>
+<button onclick="changeColour()">change Colour</button>
+
+
+<body>
+
+
+
+
+<h2 style="text-align: center; color: #000069;">Using SVG</h2>
+<svg id='svg' width='500' height='500'>
+
+  <circle id=cir cx='50' cy='50' r='40'
+  style='fill:black;stroke:blue;stroke-width:4' />
+
+
+  <rect id=rect x='350' y='10' width='100' height='80'
+  style='fill:pink;stroke:green;stroke-width:5' />
+
+</svg>
+
+
+
+<script>
+"use strict";
+function changeSize()
+{
+	let sel= document.getElementById("select")
+	let s= document.getElementById("cir")
+	let r= document.getElementById("rect")
+  let size=0;
+  alert("renk  her saniye değiştiriyor Lütfen  bekleyiniz");
+   setInterval(function(){
+	if(sel.value=="circle")
+		s.r.baseVal.value=size++;
+	else
+		r.width.baseVal.value=size++;
+}, 150);
+}
+function changeStrok()
+{
+
+	let sel= document.getElementById("select")
+	let s= document.getElementById("cir")
+	let r= document.getElementById("rect")
+  let val=0;
+
+  alert("renk  her saniye değiştiriyor Lütfen  bekleyiniz");
+   setInterval(function(){
+
+  if(sel.value=="circle")
+	{
+		s.style.strokeWidth=val++
+	}
+	else
+	{
+		r.style.strokeWidth=val++
+	}
+},150);
+
+}
+function changeColour()
+{
+	let sel= document.getElementById("select")
+	let s= document.getElementById("cir")
+	let r= document.getElementById("rect")
+  alert("renk  her saniye değiştiriyor Lütfen  bekleyiniz");
+   setInterval(function(){
+     var letters = '0123456789ABCDEF';
+     var color = '#';
+     for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+      }
+
+      if(sel.value=="circle")s.style.fill=color
+    	else r.style.fill=color
+   }, 1500);
+
+}
+function changePlace()
+{
+	let sel= document.getElementById("select")
+	let s= document.getElementById("cir")
+	let r= document.getElementById("rect")
+  let x=0;
+  let y=0;
+  alert("renk  her saniye değiştiriyor Lütfen  bekleyiniz");
+   setInterval(function(){
+
+      if(sel.value=="circle")
+    	{
+    		s.cx.baseVal.value=x++
+    		s.cy.baseVal.value=y++
+    	}
+    	else
+    	{
+    		r.x.baseVal.value=x++
+    		r.y.baseVal.value=y++
+    	}
+
+
+
+   }, 100);
+
+
+
+}
+</script>
+
+</body>
+</html>
