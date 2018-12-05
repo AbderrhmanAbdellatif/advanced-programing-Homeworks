@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>SVG and Canvas </title>
+
+  <style>
+     canvas {
+        background: cyan;
+        font: 10px arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+<input type=button value="renk degistir"  onClick="renk()">
+<input type=button value="boyunu"  onClick="boyutu()">
+<input type=button value="kaliniligi"  onClick="Max()">
+<input type=button value="yeri degistir"  onClick="Max()">
+<img id="scream" width="220" height="277"
+src="https://www.google.com.tr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google">
+
+
+<hr />
+
+<h2>Using Canvas</h2>
+
+<canvas id=canvas width=500 height=300 style="border:10px solid #d3d3d3;"></canvas>
+
+<p>Canvas is an image drawn by JavaScript</p>
+
+<pre id=sample></pre>
+
+<hr />
+
+<p>Ref: <i>Eloquent JavaScript</i>,
+<a href="http://eloquentjavascript.net/17_canvas.html"
+   target="ExternalDocument"> Chap 17</a>
+</p>
+
+<script>
+"use strict";
+function boyutu(){
+
+
+}
+function renk(){
+  alert("renk  her saniye değiştiriyor Lütfen  bekleyiniz");
+   setInterval(function(){
+     var letters = '0123456789ABCDEF';
+     var color = '#';
+     for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+      }
+     draw(color);
+   }, 1500);
+}
+var img = document.getElementById("google");
+function draw(renk) {
+    cx.beginPath(); cx.lineWidth = 6;
+    cx.fillStyle = renk; cx.strokeStyle = renk;
+    cx.arc(50, 50, 40, 0, 2*Math.PI);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = renk;
+    cx.fillText("arc",44,55);
+    cx.beginPath(); cx.lineWidth = 5;
+    cx.fillStyle = renk; cx.strokeStyle = renk;
+    cx.rect(110, 10, 100, 80);
+    cx.fill(); cx.stroke();
+    cx.fillStyle = renk;
+    cx.fillText("rect",148,55);
+}
+    sample.innerText = draw;
+    const cx = canvas.getContext("2d");
+    draw();
+</script>
+</body>
+</html>
