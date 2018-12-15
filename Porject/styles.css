@@ -44,7 +44,6 @@ html, body {
 .main-header {
     background-color: rgba(0, 0, 0, .6);
     background-image: url("Images/Header Background.jpg");
-    background-blend-mode: multiply;
     background-size: cover;
     padding-bottom: 30px;
 }
@@ -52,10 +51,7 @@ html, body {
 .band-name {
     text-align: center;
     margin: 0;
-    font-size: 4em;
-    font-family: "Booter - Zero Zero";
-    font-weight: normal;
-    color: white;
+    color: aquamarine;
 }
 
 .band-name-large {
@@ -113,6 +109,7 @@ html, body {
 }
 
 .btn {
+	color: red;
     text-align: center;
     vertical-align: middle;
     padding: .67em .67em;
@@ -147,13 +144,6 @@ html, body {
     text-align: center;
 }
 
-.btn-primary {
-    color: white;
-    background-color: #56CCF2;
-    border: none;
-    border-radius: .3em;
-    font-weight: bold;
-}
 
 .btn-primary:hover {
     background-color: #2D9CDB;
@@ -283,7 +273,6 @@ html, body {
 .btn-danger:hover {
     background-color: #CC4C4C;
 }
-
 .cart-quantity-input {
     height: 34px;
     width: 50px;
@@ -296,33 +285,27 @@ html, body {
     font-size: 1.2em;
     margin-right: 25px;
 }
-
 .cart-row:last-child {
     border-bottom: 1px solid black;
 }
-
 .cart-row:last-child .cart-column {
     border: none;
 }
-
 .cart-total {
     text-align: end;
     margin-top: 10px;
     margin-right: 10px;
 }
-
 .cart-total-title {
     font-weight: bold;
     font-size: 1.5em;
     color: black;
     margin-right: 20px;
 }
-
 .cart-total-price {
     color: #333;
     font-size: 1.1em;
 }
-
 .btn-purchase {
     display: block;
     margin: 40px auto 80px auto;
