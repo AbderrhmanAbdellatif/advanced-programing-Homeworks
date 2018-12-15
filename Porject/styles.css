@@ -1,51 +1,36 @@
 
-* {
-    box-sizing: border-box;
-    font-family: Raleway;
-    color: #777;
-}
-
 html, body {
     margin: 0;
     padding: 0;
     min-height: 100%;
 }
-
 .nav ul {
     margin: 0;
 }
-
 .nav li {
     display: inline;
 }
-
 .nav a {
     display: inline-block;
     padding: .5em;
     color: white;
     text-decoration: none;
 }
-
 .main-nav {
     text-align: center;
     font-size: 1.1em;
     font-weight: lighter;
     border-bottom: 1px solid rgba(255, 255, 255, .3)
 }
-
 .main-nav li {
     padding: 0 5%;
 }
-
 .nav a:hover {
     background-color: rgba(255, 255, 255, .3)
 }
-
 .main-header {
-    background-color: rgba(0, 0, 0, .6);
     background-image: url("Images/Header Background.jpg");
     background-size: cover;
-    padding-bottom: 30px;
 }
 
 .band-name {
@@ -53,24 +38,11 @@ html, body {
     margin: 0;
     color: aquamarine;
 }
-
 .band-name-large {
     font-size: 8em;
 }
-
-.content-section {
-    margin: 1em;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5em;
-}
 .section-header {
-    font-family: "Metal Mania";
-    font-weight: normal;
-    color: #333;
+    color: #9c0000;
     text-align: center;
     font-size: 2.5em;
 }
@@ -188,12 +160,10 @@ html, body {
 
 .shop-item-title {
     display: block;
-    width: 100%;
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
     color: #333;
-    margin-bottom: 15px;
 }
 
 .shop-item-image {
@@ -227,19 +197,13 @@ html, body {
     display: flex;
     align-items: center;
     border-bottom: 1px solid black;
-    margin-right: 1.5em;
-    padding-bottom: 10px;
-    margin-top: 10px;
 }
-
 .cart-row {
     display: flex;
 }
-
 .cart-item {
     width: 45%;
 }
-
 .cart-price {
     width: 20%;
     font-size: 1.2em;
@@ -276,11 +240,9 @@ html, body {
 .cart-quantity-input {
     height: 34px;
     width: 50px;
-    border-radius: 5px;
+    border-radius: 50px;
     border: 1px solid #56CCF2;
-    background-color: #eee;
-    color: #333;
-    padding: 0;
+    color: darkviolet;
     text-align: center;
     font-size: 1.2em;
     margin-right: 25px;
@@ -288,9 +250,7 @@ html, body {
 .cart-row:last-child {
     border-bottom: 1px solid black;
 }
-.cart-row:last-child .cart-column {
-    border: none;
-}
+
 .cart-total {
     text-align: end;
     margin-top: 10px;
