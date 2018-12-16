@@ -15,16 +15,30 @@
             <div class="shop-items">
                 <div class="shop-item">
                     <span class="shop-item-title">Album 1</span>
-                    <img class="shop-item-image" src="Images/Album 1.png">
+                    <img id="img" class="shop-item-image" src="Images/Album 1.png">
                     <div class="shop-item-details">
                         <span class="shop-item-price">$12.99</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                     </div>
-					<audio controls >
-                    <source src="Sound\dom.mp3" type="audio/mpeg">
-                   </audio>
-
-                </div>
+					<audio id="audio" src="Sound\dom.mp3"></audio>
+					<script>
+                      let size=0;
+                     document.getElementById("img").addEventListener("click", function(){
+                     if(size%2==0){
+			              alert(' Album 1 audio play ')
+	                     document.getElementById("audio").play();
+	                   }else {
+			               alert(' Album 1 audio pause')
+	                     document.getElementById("audio").pause();}
+	                     size++;	
+	                     console.log(size);
+	                     });
+                    </script>
+					
+					
+					
+					
+					</div>
                 <div class="shop-item">
                     <span class="shop-item-title">Album 2</span>
                     <img class="shop-item-image" src="Images/Album 2.png">

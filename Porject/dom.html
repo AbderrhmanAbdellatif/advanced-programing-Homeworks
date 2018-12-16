@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<body>  
+<center>
+
+<audio id="audio" src="Sound\dom.mp3"></audio>
+<img id="img" src="Images/Album 1.png" width=550 height=550 >
+</center>
+<script>
+let size=0;
+document.getElementById("img").addEventListener("click", function(){
+    
+	if(size%2==0){
+			    alert(' audio play ')
+	document.getElementById("audio").play();
+	}else {
+			    alert(' audio pause')
+	document.getElementById("audio").pause();}
+	
+	
+	size++;	
+	console.log(size);
+	
+});
+
+</script>
+</body>
+</html>
