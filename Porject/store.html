@@ -68,13 +68,17 @@
                 <span class="shop-item-price">$12.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-            <audio id="audio" src="Sound\dom.mp3"></audio>
+            <audio id="audio" src="Sound\Album1.mp3"></audio>
             <script>
                 let size = 0;
                 document.getElementById("img").addEventListener("click", function() {
                     if (size % 2 == 0) {
                         alert(' Album 1 audio play ')
                         document.getElementById("audio").play();
+					    document.getElementById("audio2").pause();
+						  document.getElementById("audio3").pause();
+					      document.getElementById("audio4").pause();
+					
                     } else {
                         alert(' Album 1 audio pause ')
                         document.getElementById("audio").pause();
@@ -93,16 +97,20 @@
                 <span class="shop-item-price">$14.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			    <audio id="audio" src="Sound\dom.mp3"></audio>
+			    <audio id="audio2" src="Sound\Album2.mp3"></audio>
             <script>
                 let size2 = 0;
                 document.getElementById("img2").addEventListener("click", function() {
                     if (size2 % 2 == 0) {
                         alert(' Album 2 audio play ')
-                        document.getElementById("audio").play();
+                        document.getElementById("audio2").play();
+						   document.getElementById("audio").pause();
+						  document.getElementById("audio3").pause();
+					      document.getElementById("audio4").pause();
+					        
                     } else {
                         alert(' Album 2 audio pause ')
-                        document.getElementById("audio").pause();
+                        document.getElementById("audio2").pause();
                     }
                     size2++;
                     console.log(size2);
@@ -119,16 +127,20 @@
                 <span class="shop-item-price">$9.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			    <audio id="audio" src="Sound\dom.mp3"></audio>
+			    <audio id="audio3" src="Sound\Album3.mp3"></audio>
             <script>
                 let size3 = 0;
                 document.getElementById("img3").addEventListener("click", function() {
                     if (size3 % 2 == 0) {
                         alert(' Album 3 audio play ')
-                        document.getElementById("audio").play();
+                        document.getElementById("audio3").play();
+					    document.getElementById("audio").pause();
+					    document.getElementById("audio2").pause();
+					    document.getElementById("audio4").pause();
+					
                     } else {
                         alert(' Album 3 audio pause ')
-                        document.getElementById("audio").pause();
+                        document.getElementById("audio3").pause();
                     }
                     size3++;
                     console.log(size3);
@@ -145,16 +157,20 @@
                 <span class="shop-item-price">$19.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			    <audio id="audio" src="Sound\dom.mp3"></audio>
+			    <audio id="audio4" src="Sound\Album4.mp3"></audio>
             <script>
                 let size4 = 0;
                 document.getElementById("img4").addEventListener("click", function() {
                     if (size4 % 2 == 0) {
                         alert(' Album 4 audio play ')
-                        document.getElementById("audio").play();
+                        document.getElementById("audio4").play();
+			    		   document.getElementById("audio").pause();
+						  document.getElementById("audio3").pause();
+					      document.getElementById("audio2").pause();
+					
                     } else {
                         alert(' Album 4 audio pause ')
-                        document.getElementById("audio").pause();
+                        document.getElementById("audio4").pause();
                     }
                     size4++;
                     console.log(size4);
