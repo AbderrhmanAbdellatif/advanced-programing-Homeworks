@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Generics | Store</title>
-        <meta name="description" content="This is the description">
+        <title>The Store </title>
         <link rel="stylesheet" href="styles.css"/>
         <script src="store.js" async></script>
+		<link rel="icon"  href="icon.png">
     </head>
     <body>
         <div>
             <header class="main-header">
-                <h1 class="band-name band-name-large">Gad express</h1>
+                <h1 class="band-name band-name-large">Expresstr</h1>
             </header>
 </head><h2>Search for item </h2>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
@@ -184,11 +184,25 @@
     <div class="shop-items">
         <div class="shop-item">
             <span class="shop-item-title">T-Shirt</span>
-            <img class="shop-item-image" src="Images/Shirt.png">
-            <div class="shop-item-details">
+            
+			<div class="img-magnifier-container">
+			<img   id="myimage" class="shop-item-image" src="Images/Shirt.png">
+			</div>
+			
+			<div class="shop-item-details">
                 <span class="shop-item-price">$19.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
+			
+<script>
+/* Initiate Magnify Function
+with the id of the image, and the strength of the magnifier glass:*/
+magnify("myimage", 3);
+</script>
+			
+			
+			
+			
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Coffee Cup</span>
@@ -214,4 +228,9 @@
     </div>
     <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
 </section>
-</body></html>
+
+
+
+</body>
+
+</html>
