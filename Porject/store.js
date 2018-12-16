@@ -23,7 +23,6 @@ function ready() {
         var button = addToCartButtons[i]
         button.addEventListener('click', addToCartClicked)
     }
-    
 		document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 	
 }
@@ -89,11 +88,11 @@ function addToCartClicked(event) {
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
     addItemToCart(title, price, imageSrc)
-	if(!arrayofAlbum.includes(title)){
+	//if(!arrayofAlbum.includes(title)){
     updateCartTotal()
-	}else{
-		console.log("Album ");
-	}
+	//}else{
+//		console.log("Album ");
+	//}
 }
 
 function addItemToCart(title, price, imageSrc) {
@@ -159,8 +158,16 @@ function updateCartTotal() {
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
         total = total + (price * quantity)
+		}else{
+		var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+		
+        total = total +  price;
 		}
+		
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
+
