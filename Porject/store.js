@@ -44,8 +44,12 @@ function purchaseClicked() {
 
 function removeCartItem(event) {
     var buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.remove()
-    var arrayofitem=[];
+    if(arrayofAlbum.includes(buttonClicked.parentElement.innerText.split("\n")[0])){
+		buttonClicked.parentElement.remove();
+	}else{
+		  buttonClicked.parentElement.parentElement.remove();
+	}
+	var arrayofitem=[];
     var size = document.getElementsByClassName("cart-item cart-column").length
     for(let i=0;i<size ;i++){
 		arrayofitem.push(document.getElementsByClassName("cart-item cart-column")[i].innerText);
