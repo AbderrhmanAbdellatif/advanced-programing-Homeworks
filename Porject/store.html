@@ -86,27 +86,80 @@
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Album 2</span>
-            <img class="shop-item-image" src="Images/Album 2.png">
+			 <p>click on the image to play the song </p>
+           
+            <img id="img2" class="shop-item-image" src="Images/Album 2.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$14.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
+			    <audio id="audio" src="Sound\dom.mp3"></audio>
+            <script>
+                let size2 = 0;
+                document.getElementById("img2").addEventListener("click", function() {
+                    if (size2 % 2 == 0) {
+                        alert(' Album 2 audio play ')
+                        document.getElementById("audio").play();
+                    } else {
+                        alert(' Album 2 audio pause ')
+                        document.getElementById("audio").pause();
+                    }
+                    size2++;
+                    console.log(size2);
+                });
+            </script>
+        
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Album 3</span>
-            <img class="shop-item-image" src="Images/Album 3.png">
+			 <p>click on the image to play the song </p>
+           
+            <img id="img3" class="shop-item-image" src="Images/Album 3.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$9.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
+			    <audio id="audio" src="Sound\dom.mp3"></audio>
+            <script>
+                let size3 = 0;
+                document.getElementById("img3").addEventListener("click", function() {
+                    if (size3 % 2 == 0) {
+                        alert(' Album 3 audio play ')
+                        document.getElementById("audio").play();
+                    } else {
+                        alert(' Album 3 audio pause ')
+                        document.getElementById("audio").pause();
+                    }
+                    size3++;
+                    console.log(size3);
+                });
+            </script>
+        
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Album 4</span>
-            <img class="shop-item-image" src="Images/Album 4.png">
+			 <p>click on the image to play the song </p>
+           
+            <img id="img4" class="shop-item-image" src="Images/Album 4.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$19.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
+			    <audio id="audio" src="Sound\dom.mp3"></audio>
+            <script>
+                let size4 = 0;
+                document.getElementById("img4").addEventListener("click", function() {
+                    if (size4 % 2 == 0) {
+                        alert(' Album 4 audio play ')
+                        document.getElementById("audio").play();
+                    } else {
+                        alert(' Album 4 audio pause ')
+                        document.getElementById("audio").pause();
+                    }
+                    size4++;
+                    console.log(size4);
+                });
+            </script>
         </div>
     </div>
 </section>
