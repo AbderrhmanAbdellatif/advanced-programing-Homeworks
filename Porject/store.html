@@ -4,7 +4,7 @@
         <title>The Store </title>
         <link rel="stylesheet" href="styles.css"/>
         <script src="store.js" async></script>
-		<link rel="icon"  href="icon.png">
+        <link rel="icon" href="icon.png">
     </head>
     <body>
         <div>
@@ -62,9 +62,8 @@
     <div class="shop-items">
         <div class="shop-item">
             <span class="shop-item-title">Album 1</span>
-           <p>click on the image to play or pause the song </p>
-                      
-		   <img id="img" class="shop-item-image" src="Images/Album 1.png">
+            <p>click on the image to play or pause the song </p>
+            <img id="img" class="shop-item-image" src="Images/Album 1.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$12.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -76,10 +75,10 @@
                     if (size % 2 == 0) {
                         alert(' Album 1 audio play ')
                         document.getElementById("audio").play();
-					    document.getElementById("audio2").pause();
-						  document.getElementById("audio3").pause();
-					      document.getElementById("audio4").pause();
-					
+                        document.getElementById("audio2").pause();
+                        document.getElementById("audio3").pause();
+                        document.getElementById("audio4").pause();
+
                     } else {
                         alert(' Album 1 audio pause ')
                         document.getElementById("audio").pause();
@@ -91,24 +90,23 @@
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Album 2</span>
-			 <p>click on the image to play or pause the song </p>
-           
+            <p>click on the image to play or pause the song </p>
             <img id="img2" class="shop-item-image" src="Images/Album 2.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$14.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			    <audio id="audio2" src="Sound\Album2.mp3"></audio>
+            <audio id="audio2" src="Sound\Album2.mp3"></audio>
             <script>
                 let size2 = 0;
                 document.getElementById("img2").addEventListener("click", function() {
                     if (size2 % 2 == 0) {
                         alert(' Album 2 audio play ')
                         document.getElementById("audio2").play();
-						   document.getElementById("audio").pause();
-						  document.getElementById("audio3").pause();
-					      document.getElementById("audio4").pause();
-					        
+                        document.getElementById("audio").pause();
+                        document.getElementById("audio3").pause();
+                        document.getElementById("audio4").pause();
+
                     } else {
                         alert(' Album 2 audio pause ')
                         document.getElementById("audio2").pause();
@@ -117,28 +115,26 @@
                     console.log(size2);
                 });
             </script>
-        
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Album 3</span>
-			<p>click on the image to play or pause the song </p>
-           
+            <p>click on the image to play or pause the song </p>
             <img id="img3" class="shop-item-image" src="Images/Album 3.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$9.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			    <audio id="audio3" src="Sound\Album3.mp3"></audio>
+            <audio id="audio3" src="Sound\Album3.mp3"></audio>
             <script>
                 let size3 = 0;
                 document.getElementById("img3").addEventListener("click", function() {
                     if (size3 % 2 == 0) {
                         alert(' Album 3 audio play ')
                         document.getElementById("audio3").play();
-					    document.getElementById("audio").pause();
-					    document.getElementById("audio2").pause();
-					    document.getElementById("audio4").pause();
-					
+                        document.getElementById("audio").pause();
+                        document.getElementById("audio2").pause();
+                        document.getElementById("audio4").pause();
+
                     } else {
                         alert(' Album 3 audio pause ')
                         document.getElementById("audio3").pause();
@@ -147,28 +143,26 @@
                     console.log(size3);
                 });
             </script>
-        
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Album 4</span>
-			<p>click on the image to play or pause the song </p>
-           
+            <p>click on the image to play or pause the song </p>
             <img id="img4" class="shop-item-image" src="Images/Album 4.png">
             <div class="shop-item-details">
                 <span class="shop-item-price">$19.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			    <audio id="audio4" src="Sound\Album4.mp3"></audio>
+            <audio id="audio4" src="Sound\Album4.mp3"></audio>
             <script>
                 let size4 = 0;
                 document.getElementById("img4").addEventListener("click", function() {
                     if (size4 % 2 == 0) {
                         alert(' Album 4 audio play ')
                         document.getElementById("audio4").play();
-			    		   document.getElementById("audio").pause();
-						  document.getElementById("audio3").pause();
-					      document.getElementById("audio2").pause();
-					
+                        document.getElementById("audio").pause();
+                        document.getElementById("audio3").pause();
+                        document.getElementById("audio2").pause();
+
                     } else {
                         alert(' Album 4 audio pause ')
                         document.getElementById("audio4").pause();
@@ -185,25 +179,18 @@
     <div class="shop-items">
         <div class="shop-item">
             <span class="shop-item-title">T-Shirt</span>
-            
-			<div class="img-magnifier-container">
-			<img   id="myimage" class="shop-item-image" src="Images/Shirt.png">
-			</div>
-			
-			<div class="shop-item-details">
+            <div class="img-magnifier-container">
+                <img id="myimage" class="shop-item-image" src="Images/Shirt.png">
+            </div>
+            <div class="shop-item-details">
                 <span class="shop-item-price">$19.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
             </div>
-			
-<script>
-/* Initiate Magnify Function
+            <script>
+                /* Initiate Magnify Function
 with the id of the image, and the strength of the magnifier glass:*/
-magnify("myimage", 3);
-</script>
-			
-			
-			
-			
+                magnify("myimage", 3);
+            </script>
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Coffee Cup</span>
@@ -229,9 +216,4 @@ magnify("myimage", 3);
     </div>
     <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
 </section>
-
-
-
-</body>
-
-</html>
+</body></html>
