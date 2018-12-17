@@ -188,7 +188,18 @@
             </div>
 <script>
 /* Execute the magnify function: */
+try {
 magnify("myimage", 3);
+} catch (e) {
+  console.log(e instanceof ReferenceError); // true
+  console.log(e.message);                   // "undefinedVariable is not defined"
+  console.log(e.name);                      // "ReferenceError"
+  console.log(e.fileName);                  // "Scratchpad/1"
+  console.log(e.lineNumber);                // 2
+  console.log(e.columnNumber);              // 6
+  console.log(e.stack);                     // "@Scratchpad/2:2:7\n"
+}
+
 /* Specify the id of the image, and the strength of the magnifier glass: */ 
 </script>			
         </div>
@@ -218,9 +229,9 @@ magnify("myimage", 3);
 </section>
 
 <p>Ref: 
-<a href="https://developers.google.com/maps/documentation/javascript/controls" 
-   target="ExternalDocument">Map Controls</a> <br>
-<a href="https://github.com/mdn/learning-area/blob/master/javascript/apis/introduction/maps-example.html" 
-   target="ExternalDocument">Google Maps Example</a>
+<a href="https://www.w3schools.com/jsref/dom_obj_select.asp" 
+   target="ExternalDocument">HTML DOM Select Object</a> <br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" 
+   target="ExternalDocument"> Introduction to the DOM </a>
 </p>
 </body></html>
