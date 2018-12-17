@@ -1,0 +1,33 @@
+<html>
+<body>
+
+
+            <span class="shop-item-title">Album 2</span>
+            <p>click on the image to play or pause the song </p>
+            <img id="img2" class="shop-item-image" src="Album 2.png">
+            <div class="shop-item-details">
+                <span class="shop-item-price">$14.99</span>
+                <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+            </div>
+            <audio id="audio2" src="Album2.mp3"></audio>
+            <script>
+                let size2 = 0;
+                document.getElementById("img2").addEventListener("click", function() {
+                    if (size2 % 2 == 0) {
+                        alert(' Album 2 audio play ')
+                        document.getElementById("audio2").play();
+                        document.getElementById("audio").pause();
+                        document.getElementById("audio3").pause();
+                        document.getElementById("audio4").pause();
+
+                    } else {
+                        alert(' Album 2 audio pause ')
+                        document.getElementById("audio2").pause();
+                    }
+                    size2++;
+                    console.log(size2);
+                });
+            </script>
+        
+<body>
+<html>
