@@ -243,6 +243,7 @@ function magnify(imgID, zoom) {
         };
     }
 }
+/*
 let counterOfItemShop = document.getElementsByClassName('shop-item').length;
 for (let i = 0; i < counterOfItemShop; i++) {
 	var paragraph = document.createElement('html');
@@ -269,3 +270,4 @@ for (let i = 0; i < counterOfItemShop; i++) {
         document.body.removeChild(event.target);
     }
 }
+*/
