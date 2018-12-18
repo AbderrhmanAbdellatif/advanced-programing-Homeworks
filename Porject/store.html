@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+   
     <head>
         <title>The Store </title>
         <link rel="stylesheet" href="styles.css"/>
@@ -11,7 +12,7 @@
             <header class="main-header">
                 <h1 class="band-name band-name-large">Expresstr</h1>
             </header>
-</head><h2>Search for item </h2>
+</head><h2>Search for item and read the  Detail</h2>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 <ul id="myUL"></ul>
 <script>
@@ -33,8 +34,7 @@
         var counterofelement = 0;
         for (let i = 0; i < ArrayOfItemShop.length; i++) {
             element = document.createElement("li");
-			//var link=document.getElementsByClassName('shop-item-title')[i].innerText+".html";
-            element.innerHTML = '<a href='+ "files/"+document.getElementsByClassName('shop-item-title')[i].innerText.replace(" ","_")+".htm" +'>' + ArrayOfItemShop[i] + '</a>'
+		    element.innerHTML = '<a href='+ document.getElementsByClassName('shop-item-title')[i].innerText.replace(" ","_")+".htm" +'>' + ArrayOfItemShop[i] + '</a>'
             ul.appendChild(element);
             li = ul.getElementsByTagName("li");
             counterofelement++;
@@ -181,7 +181,7 @@
         <div class="shop-item">
             <span class="shop-item-title">T-Shirt</span>
             <div class="img-magnifier-container">
-                <img id="myimage" class="shop-item-image" src="Images/Shirt.png">
+                <img id="myimage" class="shop-item-image" src="https://ae01.alicdn.com/kf/HTB1IInsaiDxK1Rjy1zcq6yGeXXaC/Men-s-Marvel-Spiderman-Cotton-Print-Black-T-shirts-Unisex-Comic-Superhero-Design-Brand-Tshirt-Women.jpg_640x640.jpg">
             </div>
             <div class="shop-item-details">
                 <span class="shop-item-price">$19.99</span>
@@ -206,7 +206,7 @@ magnify("myimage", 3);
         </div>
         <div class="shop-item">
             <span class="shop-item-title">Coffee Cup</span>
-            <img class="shop-item-image" src="Images/Cofee.png">
+            <img class="shop-item-image" src="https://ae01.alicdn.com/kf/HTB1rM7YXXzsK1Rjy1Xbq6xOaFXaB/Pinkah-380-500ml-304-Stainless-Steel-Thermo-Cup-Travel-Coffee-Mug-with-Lid-Car-Water-Bottle.jpg_640x640.jpg">
             <div class="shop-item-details">
                 <span class="shop-item-price">$6.99</span>
                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -228,8 +228,14 @@ magnify("myimage", 3);
     </div>
     <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
 </section>
+<center>
+<div> 
+ <span style="font-size: 18.0px;"><span style="color: #767676;"><img alt="3" src="https://ae01.alicdn.com/kf/HTB1o8QVseySBuNjy1zdq6xPxFXaq.jpg"></span></span>
+<center>
 
-<p>Ref: 
+
+<p>Reference: 
+<br>
 <a href="https://www.w3schools.com/jsref/dom_obj_select.asp" 
    target="ExternalDocument">HTML DOM Select Object</a> <br>
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" 
@@ -237,5 +243,15 @@ magnify("myimage", 3);
 <br>
 <a href="https://www.w3schools.com/css/default.asp" 
    target="ExternalDocument"> w3schools Css </a>
+   <br>
+<a href="https://store.hmv.com/" 
+   target="ExternalDocument"> store  Css </a>
+<br>
+<a href="https://www.aliexpress.com" 
+   target="ExternalDocument"> aliexpress Html </a>
+
 </p>
+
+</div></div>
+
 </body></html>
