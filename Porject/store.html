@@ -33,7 +33,8 @@
         var counterofelement = 0;
         for (let i = 0; i < ArrayOfItemShop.length; i++) {
             element = document.createElement("li");
-            element.innerHTML = '<a href="#">' + ArrayOfItemShop[i] + '</a>'
+			//var link=document.getElementsByClassName('shop-item-title')[i].innerText+".html";
+            element.innerHTML = '<a href='+ "files/"+document.getElementsByClassName('shop-item-title')[i].innerText.replace(" ","_")+".htm" +'>' + ArrayOfItemShop[i] + '</a>'
             ul.appendChild(element);
             li = ul.getElementsByTagName("li");
             counterofelement++;
