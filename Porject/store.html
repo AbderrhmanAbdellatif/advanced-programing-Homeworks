@@ -2,7 +2,7 @@
 <html><head>
         <title>The Store </title>
         <link rel="stylesheet" href="styles.css">
-        <script src="store.js" async=""></script>
+        <script src="store.js"  async=""></script>
         <link rel="icon" href="icon.png">
     </head>
     <body>
@@ -221,13 +221,14 @@
 try {
 magnify("myimage", 3);
 } catch (e) {
-  console.log(e instanceof ReferenceError); // true
-  console.log(e.message);                   // "undefinedVariable is not defined"
+  /*console.log(e instanceof ReferenceError); // true
+  //console.log(e.message);                   // "undefinedVariable is not defined"
   console.log(e.name);                      // "ReferenceError"
   console.log(e.fileName);                  // "Scratchpad/1"
   console.log(e.lineNumber);                // 2
   console.log(e.columnNumber);              // 6
   console.log(e.stack);                     // "@Scratchpad/2:2:7\n"
+  */
 }
 
 /* Specify the id of the image, and the strength of the magnifier glass: */ 

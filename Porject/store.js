@@ -58,7 +58,7 @@ function removeCartItem(event) {
             updateCartTotal()
         }
         if (!arrayofAlbum.includes(arrayofitem[i])) {
-            console.log("Album ");
+            //console.log("Album ");
         }
     }
 }
@@ -78,7 +78,7 @@ function quantityChanged(event) {
             updateCartTotal()
         }
         if (!arrayofAlbum.includes(arrayofitem[i])) {
-            console.log("Album ");
+            //console.log("Album ");
         }
     }
 
@@ -243,31 +243,3 @@ function magnify(imgID, zoom) {
         };
     }
 }
-/*
-let counterOfItemShop = document.getElementsByClassName('shop-item').length;
-for (let i = 0; i < counterOfItemShop; i++) {
-	var paragraph = document.createElement('html');
-    var body = document.createElement('body');
-	body.append(document.getElementsByClassName('shop-item')[0].innerHTML);
-	paragraph.append(body)
-    var textToSave = paragraph.innerText;
-	
-    var textToSaveAsBlob = new Blob([textToSave],{
-        type: "text/html" 
-    });
-	
-    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-    var fileNameToSaveAs = document.getElementsByClassName('shop-item-title')[i].innerHTML;
-    var downloadLink = document.createElement("a");
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.innerHTML = "Download File";
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = destroyClickedElement;
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    function destroyClickedElement(event) {
-        document.body.removeChild(event.target);
-    }
-}
-*/
