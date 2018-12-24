@@ -153,24 +153,19 @@ function updateCartTotal() {
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
     for (var i = 0; i < cartRows.length; i++) {
-        if (arrayofAlbum.includes(cartRows[i].innerText.split("\n")[0])) {
-			
-		    var cartRow = cartRows[i]
-            var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-            var price = parseFloat(priceElement.innerText.replace('$', ''))
-
-            total = total + price;
-			
-		
-            } else {
-        	
-			var cartRow = cartRows[i]
+        if (!arrayofAlbum.includes(cartRows[i].innerText.split("\n")[0])) {
+            var cartRow = cartRows[i]
             var priceElement = cartRow.getElementsByClassName('cart-price')[0]
             var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
             var price = parseFloat(priceElement.innerText.replace('$', ''))
             var quantity = quantityElement.value
             total = total + (price * quantity)
-        
+        } else {
+            var cartRow = cartRows[i]
+            var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+            var price = parseFloat(priceElement.innerText.replace('$', ''))
+
+            total = total + price;
         }
 
     }
